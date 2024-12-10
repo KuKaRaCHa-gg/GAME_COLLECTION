@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+/* Style pour le formulaire */
+form {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #252836;
+    border-radius: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+/* Style pour le titre du formulaire */
+form h1{
+    font: 24px "Barlow", sans-serif;
+    color: #ffffff;
+    margin-left: 40px;
+    font-weight: bold;
+}
+
+/* Style pour le titre du formulaire */
+form a{
+    font: 16px "Barlow", sans-serif;
+    color: #ffffff;
+    margin-left: 40px;
+    font-weight: 400;
+    text-decoration: none;
+}
+
+/* Style pour les champs */
+form input[type="text"],
+form input[type="email"],
+form input[type="password"],
+form input[type="number"],
+form textarea,
+form select {
+    background-color: #2B2F40;
+    width: calc(100% - 80px);
+    padding: 10px;
+    border-color: #2B2F40;
+    border-style: solid;
+    margin-left: 40px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+/* Style pour le texte */
+form label {
+    font: 16px "Barlow", sans-serif;
+    display: block;
+    color: #ffffff;
+    margin-left: 40px;
+    font-weight: 400;
+}
+
+/* Style pour les boutons */
+form button {
+    font: 13.3px "Barlow", sans-serif;
+    display: block;
+    margin-left: 40px;
+    background-color: #6757D6;
+    color: white;
+    font-weight: 600;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* Change background color of submit button on hover */
+form button:hover {
+    background-color: #463897;
+    transition: 0.3s;
+}
+
+/* Style pour les erreurs */
+form .error {
+    color: red;
+    font-size: 0.9em;
+    margin-top: -10px;
+    margin-bottom: 10px;
+}
+
+form {
+    animation: haut 1.5s ease-in-out;
+}
+
+/* animation  */
+@keyframes haut {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
