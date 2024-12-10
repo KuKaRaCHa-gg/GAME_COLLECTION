@@ -1,7 +1,13 @@
 <?php
+
+require 'vendor/autoload.php';
+
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__, 'myconfig');
+$dotenv->load();
+
 echo "Fonctionne";
 session_start(); // Démarrer la session
-//require_once __DIR__ . './config/database.php'; // Connexion à la base de données
+require_once __DIR__ . './Models/fonctionDB'; // Connexion à la base de données
 echo "Fonctionne";
 
 // Autochargement des classes
@@ -16,6 +22,7 @@ spl_autoload_register(function ($class) {
     }
 });
 echo "Fonctionne";
+getUser();
 
 // Sécuriser la variable d'action
 $action = isset($_GET['action']) ? htmlspecialchars($_GET['action']) : 'home';
