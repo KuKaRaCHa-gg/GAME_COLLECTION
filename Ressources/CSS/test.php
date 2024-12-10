@@ -9,7 +9,7 @@
         Test
     </h1>
 <form>
-    <h1>Login</h1>
+    <h1>Se connecter a Game Collection</h1>
     <label for="username">Username</label>
     <input type="text" name="username">
     <label for="password">Password</label>
