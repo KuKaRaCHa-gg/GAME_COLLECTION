@@ -22,7 +22,6 @@ spl_autoload_register(function ($class) {
     }
 });
 echo "Fonctionne";
-getUser();
 
 // Sécuriser la variable d'action
 $action = isset($_GET['action']) ? htmlspecialchars($_GET['action']) : 'home';
