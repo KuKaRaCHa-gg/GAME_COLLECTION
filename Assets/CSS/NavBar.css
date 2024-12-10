@@ -1,0 +1,40 @@
+#navabarFrame {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 10%;
+}
+
+#logo {
+    height: 80%;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+#buttonStorage {
+    width: 50%;
+    display: inline-flex;
+    justify-content: space-around;
+    right: 0;
+}
+
+#buttonStorage button {
+    background-color: transparent;
+    font: 24px "Barlow", sans-serif;
+    color: white;
+    border: none;
+    font-weight: 600;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#buttonStorage button:hover {
+    color: #6757D6;
+    transition: 0.3s;
+    font-size: 30px;
+}
