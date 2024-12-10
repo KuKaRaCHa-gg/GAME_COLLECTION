@@ -22,6 +22,7 @@ form h1{
 
 /* Style pour le titre du formulaire */
 form a{
+    display: block;
     font: 16px "Barlow", sans-serif;
     color: #ffffff;
     margin-left: 40px;
@@ -34,6 +35,7 @@ form input[type="text"],
 form input[type="email"],
 form input[type="password"],
 form input[type="number"],
+form input[type="checkbox"],
 form textarea,
 form select {
     background-color: #2B2F40;
@@ -46,6 +48,13 @@ form select {
     border-radius: 5px;
     box-sizing: border-box;
 }
+
+form input[type="checkbox"] {
+    cursor: pointer;
+    width: auto;
+    margin-left: 45px;
+}
+
 
 /* Style pour le texte */
 form label {
@@ -61,6 +70,7 @@ form button {
     font: 13.3px "Barlow", sans-serif;
     display: block;
     margin-left: 40px;
+    margin-bottom: 10px;
     background-color: #6757D6;
     color: white;
     font-weight: 600;
