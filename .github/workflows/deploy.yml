@@ -1,0 +1,34 @@
+name: Déploiement du projet
+on:
+  push:
+    branches:
+      - master
+      - main
+jobs:
+  deployement:
+    name: "Deploiement du projet"
+    runs-on: ubuntu-latest
+    environment:
+      name: Production
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: ${{ github.ref }}
+        #Installation du projet via Composer
+      - name: Validate composer.json and composer.lock
+        run: composer validate --no-check-all
+
+      - name: Install Composer dependencies
+        run: composer install --no-dev
+
+      # Cette ligne va faire un rsync supprimant tout les fichiers sur le serveur (non exclus) et va les remplacer (comportement similaire a un git pull)
+      - name: Déploiement du projet en SSH
+        uses: easingthemes/ssh-deploy@v2.1.4
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
+          REMOTE_USER: ${{ secrets.REMOTE_USER }}
+          REMOTE_PORT: ${{ secrets.REMOTE_PORT }}
+          SOURCE: "./"
+          TARGET: "~/public_html"
+          ARGS: "-rltgoDzvO --delete  --verbose --exclude=*.phar --exclude=.env"

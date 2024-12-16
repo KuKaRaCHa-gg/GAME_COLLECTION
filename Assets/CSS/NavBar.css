@@ -2,11 +2,13 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    position: relative;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 10%;
+    background-color: #211F2A;
+    z-index: 1000;
 }
 
 #logo {
@@ -69,21 +71,5 @@
 
 #buttonStorage button:hover .navimages {
     top: -30px;
-    transition: top 0.3s;
-}
-
-#easter {
-    width: 50px;
-    height: 50px;
-    object-fit: fill;
-    position: absolute;
-    top: -4vh;
-    left: 10%;
-    transition: top 0.3s;
-    transform: translateX(-50%);
-}
-
-#easter:hover {
-    top: -10px;
     transition: top 0.3s;
 }
