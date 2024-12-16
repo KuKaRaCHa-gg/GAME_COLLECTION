@@ -1,4 +1,9 @@
 <?php
+require 'vendor/autoload.php';
+
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv->load();
+
 echo "Fonctionne";
 session_start(); // Démarrer la session
 //require_once __DIR__ . './config/database.php'; // Connexion à la base de données
