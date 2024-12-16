@@ -8,6 +8,8 @@ echo "Fonctionne";
 session_start(); // Démarrer la session
 //require_once __DIR__ . './config/database.php'; // Connexion à la base de données
 echo "Fonctionne";
+require_once 'Models/fonctionDB.php';
+$mysqli = connexion();
 
 // Autochargement des classes
 spl_autoload_register(function ($class) {
@@ -20,6 +22,15 @@ spl_autoload_register(function ($class) {
         }
     }
 });
+
+
+$sql = "SELECT * FROM UTILISATEUR";
+$result = $mysqli->query($sql);
+while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+    echo $row['nom_user'] . '<br>';
+    echo "Fonctionne";
+}
+
 echo "Fonctionne";
 
 // Sécuriser la variable d'action
@@ -31,6 +42,8 @@ if (!isset($_SESSION['user_id']) && !in_array($action, ['login', 'register'])) {
     exit();
 }
 echo "Fonctionne";
+
+
 
 // Routage
 switch ($action) {

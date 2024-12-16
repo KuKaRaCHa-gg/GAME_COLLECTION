@@ -4,8 +4,6 @@
 
 function getUser()
 {
-    
-
     try {
         $pdo = new PDO(
             "mysql:host=" . $_ENV['DB_HOST'] . ";dbname=" . $_ENV['DB_NAME'],
