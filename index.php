@@ -32,7 +32,7 @@ while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
     echo "Fonctionne";
 }
 
-getUser($pdo);
+getUser($pdo, 1);
 
 echo "Fonctionne";
 
