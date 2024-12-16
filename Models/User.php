@@ -4,11 +4,6 @@
 
 function getUser()
 {
-    require 'vendor/autoload.php';
-
-    $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
-    $dotenv->load();
-
     try {
         $pdo = new PDO(
             "mysql:host=" . $_ENV['DB_HOST'] . ";dbname=" . $_ENV['DB_NAME'],
