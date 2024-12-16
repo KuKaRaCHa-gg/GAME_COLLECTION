@@ -6,9 +6,7 @@
 </head>
 <body>
 <div id="navabarFrame">
-    <img id="logo" src="../Assets/Images/Logo.png" alt="Logo">
-    <img src="./../Assets/Images/force.png" alt="tri" id="easter" />
-    </img>
+    <img id="logo" src="../Assets/Images/Logo.png" alt="Logo"/>
     <div id="buttonStorage">
         <button type="button" id="buttonHome">
             MA BIBLIOTHÈQUE

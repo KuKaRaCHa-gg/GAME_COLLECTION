@@ -1,3 +1,4 @@
 <?php
 require "./NavBar.php";
-require "./../Assets/CSS/test.php";
+require "./../Models/LibraryModel.php";
+require "./../Views/LibraryView.php";
