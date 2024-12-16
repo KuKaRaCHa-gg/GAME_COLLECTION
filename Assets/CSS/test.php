@@ -3,6 +3,7 @@
 <head>
     <link rel="stylesheet" type="text/css" href="FormulaireConnexion.css">
     <link rel="stylesheet" type="text/css" href="General.css">
+    <link rel="stylesheet" type="text/css" href="Loading.css">
 </head>
 <body>
 <h1>
@@ -38,4 +39,7 @@
     <button type="submit">GRDFGFD</button>
     <a href="signup.php">Inscription</a>
 </form>
+<div class = "loading">
+    <img src="./../Images/Load.png" alt="Chargement">
+</div>
 </body>

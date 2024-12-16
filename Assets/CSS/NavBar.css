@@ -16,6 +16,7 @@
 }
 
 #buttonStorage {
+    --sens: 1;
     width: 50%;
     display: inline-flex;
     justify-content: space-around;
@@ -31,10 +32,16 @@
     padding: 10px 20px;
     cursor: pointer;
     transition: 0.3s;
+    rotate: 0deg;
 }
 
 #buttonStorage button:hover {
     color: #6757D6;
     transition: 0.3s;
     font-size: 30px;
+    rotate: calc(var(--sens, 1) * 10deg);
+}
+
+#buttonCollection, #buttonProfile {
+    --sens: -1;
 }
