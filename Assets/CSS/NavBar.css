@@ -26,7 +26,7 @@
 
 #buttonStorage button {
     background-color: transparent;
-    font: 2em "Barlow", sans-serif;
+    font: 2.4vh "Barlow", sans-serif;
     color: white;
     border: none;
     font-weight: 600;
@@ -39,7 +39,7 @@
 #buttonStorage button:hover {
     color: var(--couleur);
     transition: 0.3s;
-    font-size: 2.5em;
+    font-size: 3vh;
     rotate: calc(var(--sens, 1) * 6deg);
     text-decoration: underline;
 }
