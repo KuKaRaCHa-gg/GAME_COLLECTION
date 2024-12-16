@@ -9,7 +9,8 @@ session_start(); // Démarrer la session
 //require_once __DIR__ . './config/database.php'; // Connexion à la base de données
 echo "Fonctionne";
 require_once 'Models/fonctionDB.php';
-$mysqli = connexion();
+require_once 'Models/User.php';
+$pdo = connexion();
 
 // Autochargement des classes
 spl_autoload_register(function ($class) {
@@ -25,11 +26,13 @@ spl_autoload_register(function ($class) {
 
 
 $sql = "SELECT * FROM UTILISATEUR";
-$result = $mysqli->query($sql);
+$result = $pdo->query($sql);
 while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
     echo $row['nom_user'] . '<br>';
     echo "Fonctionne";
 }
+
+getUser($pdo);
 
 echo "Fonctionne";
 
