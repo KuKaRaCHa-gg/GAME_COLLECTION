@@ -13,5 +13,94 @@
         <br>
         JEUX À TA COLLECTION ?
     </h1>
+    <h3>
+        Mes jeux
+    </h3>
+    <div id = "gamesStorage">
+        <div class = "game">
+            <img src="./../Assets/Images/zelda.jpg" alt="jeu" class="gameImage"/>
+            <h2 class="gameTitle">
+                Zelda
+            </h2>
+            <p class="gameHours">
+                100H
+            </p>
+            <p class="gamePlatform">
+                Switch
+            </p>
+        </div>
+        <div class = "game">
+            <img src="./../Assets/Images/zelda.jpg" alt="jeu" class="gameImage"/>
+            <h2 class="gameTitle">
+                Zelda
+            </h2>
+            <p class="gameHours">
+                100H
+            </p>
+            <p class="gamePlatform">
+                Switch
+            </p>
+        </div>
+        <div class = "game">
+            <img src="./../Assets/Images/zelda.jpg" alt="jeu" class="gameImage"/>
+            <h2 class="gameTitle">
+                Zelda
+            </h2>
+            <p class="gameHours">
+                100H
+            </p>
+            <p class="gamePlatform">
+                Switch
+            </p>
+        </div>
+        <div class = "game">
+            <img src="./../Assets/Images/zelda.jpg" alt="jeu" class="gameImage"/>
+            <h2 class="gameTitle">
+                Zelda
+            </h2>
+            <p class="gameHours">
+                100H
+            </p>
+            <p class="gamePlatform">
+                Switch
+            </p>
+        </div>
+        <div class = "game">
+            <img src="./../Assets/Images/zelda.jpg" alt="jeu" class="gameImage"/>
+            <h2 class="gameTitle">
+                Zelda
+            </h2>
+            <p class="gameHours">
+                100H
+            </p>
+            <p class="gamePlatform">
+                Switch
+            </p>
+        </div>
+        <div class = "game">
+            <img src="./../Assets/Images/zelda.jpg" alt="jeu" class="gameImage"/>
+            <h2 class="gameTitle">
+                Zelda
+            </h2>
+            <p class="gameHours">
+                100H
+            </p>
+            <p class="gamePlatform">
+                Switch
+            </p>
+        </div>
+        <div class = "game">
+            <img src="./../Assets/Images/zelda.jpg" alt="jeu" class="gameImage"/>
+            <h2 class="gameTitle">
+                Zelda
+            </h2>
+            <p class="gameHours">
+                100H
+            </p>
+            <p class="gamePlatform">
+                Switch
+            </p>
+        </div>
+    </div>
 </body>
 </html>
