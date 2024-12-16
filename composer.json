@@ -1,5 +1,6 @@
 {
     "name": "kukaracha-gg/game_collection",
+    "description": "A simple game collection project for managing games.",
     "require": {
         "vlucas/phpdotenv": "^5.6"
     },
@@ -7,5 +8,6 @@
         "psr-4": {
             "KukarachaGg\\GameCollection\\": "src/"
         }
-    }
+    },
+    "license": "MIT"
 }
