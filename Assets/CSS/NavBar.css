@@ -17,6 +17,7 @@
 
 #buttonStorage {
     --sens: 1;
+    --couleur : #5770d6;
     width: 50%;
     display: inline-flex;
     justify-content: space-around;
@@ -36,12 +37,37 @@
 }
 
 #buttonStorage button:hover {
-    color: #6757D6;
+    color: var(--couleur);
     transition: 0.3s;
-    font-size: 30px;
-    rotate: calc(var(--sens, 1) * 10deg);
+    font-size: 36px;
+    rotate: calc(var(--sens, 1) * 6deg);
+    text-decoration: underline;
 }
 
 #buttonCollection, #buttonProfile {
     --sens: -1;
+    --couleur : #F9A826;
+}
+
+#buttonSearch {
+    --couleur : #fa683f;
+}
+
+#buttonProfile {
+    --couleur : #76ec64;
+}
+#buttonStorage .navimages {
+    width: 50px;
+    height: 50px;
+    object-fit: fill;
+    position: absolute;
+    top: -100px;
+    left: 50%;
+    transition: top 0.3s;
+    transform: translateX(-50%);
+}
+
+#buttonStorage button:hover .navimages {
+    top: -30px;
+    transition: top 0.3s;
 }
