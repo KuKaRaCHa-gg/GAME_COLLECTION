@@ -1,9 +1,9 @@
 <!DOCTYPE>
 <html>
 <head>
-    <link rel="stylesheet" type="text/css" href="FormulaireConnexion.css">
-    <link rel="stylesheet" type="text/css" href="General.css">
-    <link rel="stylesheet" type="text/css" href="Loading.css">
+    <link rel="stylesheet" type="text/css" href="./../Assets/CSS/FormulaireConnexion.css">
+    <link rel="stylesheet" type="text/css" href="./../Assets/CSS/General.css">
+    <link rel="stylesheet" type="text/css" href="./../Assets/CSS/Loading.css">
 </head>
 <body>
 <h1>
@@ -40,6 +40,6 @@
     <a href="signup.php">Inscription</a>
 </form>
 <div class = "loading">
-    <img src="./../Images/Load.png" alt="Chargement">
+    <img src="./../Assets/Images/Load.png" alt="Chargement">
 </div>
 </body>

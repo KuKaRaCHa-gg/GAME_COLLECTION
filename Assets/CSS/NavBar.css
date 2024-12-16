@@ -2,7 +2,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    position: fixed;
+    position: relative;
     top: 0;
     left: 0;
     width: 100%;
@@ -69,5 +69,21 @@
 
 #buttonStorage button:hover .navimages {
     top: -30px;
+    transition: top 0.3s;
+}
+
+#easter {
+    width: 50px;
+    height: 50px;
+    object-fit: fill;
+    position: absolute;
+    top: -40%;
+    left: 10%;
+    transition: top 0.3s;
+    transform: translateX(-50%);
+}
+
+#easter:hover {
+    top: -10px;
     transition: top 0.3s;
 }
