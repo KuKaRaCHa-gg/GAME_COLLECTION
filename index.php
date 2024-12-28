@@ -44,7 +44,7 @@ if (!isset($_SESSION['user_id']) && !in_array($action, ['login', 'register'])) {
     header("Location: index.php?action=login");
     exit();
 }
-echo "Fonctionne";
+echo "Fonctionnesss";
 
 
 
