@@ -6,7 +6,7 @@
     <title>Game Collection</title>
     <!-- Inclusion des fichiers CSS -->
     <link rel="stylesheet" type="text/css" href="Assets/CSS/General.css">
-    <link rel="stylesheet" type="text/css" href="Assets/CSS/NavBar.css">
+    <!--<link rel="stylesheet" type="text/css" href="Assets/CSS/NavBar.css">-->
     <link rel="stylesheet" type="text/css" href="Assets/CSS/FormulaireConnexion.css">
     <link rel="stylesheet" type="text/css" href="Assets/CSS/Library.css">
     <link rel="stylesheet" type="text/css" href="Assets/CSS/Loading.css">
