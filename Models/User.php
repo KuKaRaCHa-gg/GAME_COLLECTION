@@ -81,10 +81,10 @@ function getUser($pdo, $id)
             $query->bindParam(':id', $id, PDO::PARAM_INT);
             $query->execute();
             echo 'Utilisateur supprimé';
-        } elseif ($_POST['submit'] == 'Se déconnecter') {
+        }*/ elseif ($_POST['submit'] == 'Se déconnecter') {
             session_destroy();
             header("Location: index.php?action=login");
             exit();
-        }*/
+        }
     }
 }
