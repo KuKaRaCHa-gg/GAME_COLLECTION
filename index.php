@@ -35,6 +35,7 @@ while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
 getUser($pdo, 1);
 
 echo "Fonctionne";
+echo $sql;
 
 // Sécuriser la variable d'action
 $action = isset($_GET['action']) ? htmlspecialchars($_GET['action']) : 'home';
