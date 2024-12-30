@@ -44,7 +44,10 @@ if (!isset($_SESSION['user_id']) && !in_array($action, ['login', 'register'])) {
     header("Location: index.php?action=login");
     exit();
 }
-echo "Fonctionnesss";
+echo "Fonctionnes3";
+echo "Action : $action"; // Vérifiez si l'action est correctement définie
+echo "Session User ID : " . ($_SESSION['user_id'] ?? 'Non défini'); // Vérifiez si la session est valide
+
 
 
 
