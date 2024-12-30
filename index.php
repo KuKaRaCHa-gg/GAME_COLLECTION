@@ -4,10 +4,8 @@ require 'vendor/autoload.php';
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->load();
 
-echo "Fonctionne";
 session_start(); // Démarrer la session
 //require_once __DIR__ . './config/database.php'; // Connexion à la base de données
-echo "Fonctionne";
 require_once 'Models/fonctionDB.php';
 require_once 'Models/User.php';
 $pdo = connexion();
@@ -25,26 +23,15 @@ spl_autoload_register(function ($class) {
 });
 
 
-$sql = "SELECT * FROM UTILISATEUR";
-$result = $pdo->query($sql);
-while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
-    echo $row['nom_user'] . '<br>';
-    echo "Fonctionne";
-}
-
-getUser($pdo, 1);
-echo "Fonctionne";
-
-
 // Sécuriser la variable d'action
 $action = isset($_GET['action']) ? htmlspecialchars($_GET['action']) : 'home';
 
-// Vérifier si l'utilisateur est connecté pour les actions sécurisées
-if (!isset($_SESSION['user_id']) && !in_array($action, ['login', 'register'])) {
+// Vérifier si l'utilisateur est connecté pour les actions sécurisées 
+
+/*if (!isset($_SESSION['user_id']) && !in_array($action, ['login', 'register'])) {
     header("Location: index.php?action=login");
     exit();
-}
-echo "Fonctionnes3";
+}*/
 echo "Action : $action"; // Vérifiez si l'action est correctement définie
 echo "Session User ID : " . ($_SESSION['user_id'] ?? 'Non défini'); // Vérifiez si la session est valide
 
@@ -79,8 +66,8 @@ switch ($action) {
         break;
 
     case 'profile':
-        $authController = new AuthController();
-        $userProfile = $authController->getUserProfile($_SESSION['user_id']);
+        /*$authController = new AuthController();
+        $userProfile = $authController->getUserProfile($_SESSION['user_id']);*/
         require_once 'Views/profile_view.php';
         break;
 
