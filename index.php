@@ -40,10 +40,10 @@ echo "Fonctionne";
 $action = isset($_GET['action']) ? htmlspecialchars($_GET['action']) : 'home';
 
 // Vérifier si l'utilisateur est connecté pour les actions sécurisées
-if (!isset($_SESSION['user_id']) && !in_array($action, ['login', 'register'])) {
-    header("Location: index.php?action=login");
-    exit();
-}
+//if (!isset($_SESSION['user_id']) && !in_array($action, ['login', 'register'])) {
+//    header("Location: index.php?action=login");
+//    exit();
+//}
 echo "Fonctionnes3";
 echo "Action : $action"; // Vérifiez si l'action est correctement définie
 echo "Session User ID : " . ($_SESSION['user_id'] ?? 'Non défini'); // Vérifiez si la session est valide
