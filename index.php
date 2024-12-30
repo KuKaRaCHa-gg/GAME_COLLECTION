@@ -1,3 +1,18 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Collection</title>
+    <!-- Inclusion des fichiers CSS -->
+    <link rel="stylesheet" type="text/css" href="Assets/CSS/General.css">
+    <link rel="stylesheet" type="text/css" href="Assets/CSS/NavBar.css">
+    <link rel="stylesheet" type="text/css" href="Assets/CSS/FormulaireConnexion.css">
+    <link rel="stylesheet" type="text/css" href="Assets/CSS/Library.css">
+    <link rel="stylesheet" type="text/css" href="Assets/CSS/Loading.css">
+</head>
+<body>
+
 <?php
 require 'vendor/autoload.php';
 
@@ -92,3 +107,5 @@ switch ($action) {
         break;
 }
 ?>
+</body>
+</html>
