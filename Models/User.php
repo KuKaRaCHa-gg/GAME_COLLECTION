@@ -1,6 +1,25 @@
 <?php
 
 
+function loginUser($pdo, $email, $password)
+{
+    $query = $pdo->prepare("SELECT * FROM UTILISATEUR WHERE mail_user = :email");
+    $query->bindParam(':email', $email, PDO::PARAM_STR);
+    $query->execute();
+    $row = $query->fetch(PDO::FETCH_ASSOC);
+    if ($row) {
+        if (password_verify($password, $row['mdp_user'])) {
+            $_SESSION['user_id'] = $row['id_user'];
+            header("Location: index.php?action=home");
+            exit();
+        } else {
+            echo 'Mot de passe incorrect';
+        }
+    } else {
+        echo 'Email incorrect';
+    }
+}
+
 
 function getUser($pdo, $id)
 {

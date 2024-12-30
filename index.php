@@ -88,8 +88,8 @@ switch ($action) {
 
     case 'home':
     default:
-        $gameController = new GameController();
-        $userGames = $gameController->getUserGames($_SESSION['user_id']);
+        /*$gameController = new GameController();
+        $userGames = $gameController->getUserGames($_SESSION['user_id']);*/
         require_once 'Views/home_view.php';
         break;
 }
