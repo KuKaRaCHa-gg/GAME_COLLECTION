@@ -1,4 +1,8 @@
 RewriteEngine on
+
+# Si la requête est pour un fichier ou un répertoire existant, ne pas réécrire
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^([0-9]+)$ article.php?id=$1 [QSA,L]
+
+# Rediriger toutes les requêtes vers index.php avec les paramètres
+RewriteRule ^(.*)$ index.php?action=$1 [QSA,L]
