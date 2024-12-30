@@ -1,6 +1,9 @@
-<?php include 'header.php'; ?>
+<?php include 'header.php'; 
+require_once 'Models/fonctionDB.php';
+require_once 'Models/User.php';
+$pdo = connexion(); ?>
 <div class="home-container">
-    <h1>Salut <?= htmlspecialchars($_SESSION['pren_user'] ?? 'Utilisateur'); ?> ! Prêt à ajouter des jeux à ta collection ?</h1>
+    <h1>Salut <?= htmlspecialchars(getPrenom($pdo, $_SESSION['user_id']) ?? 'Utilisateur'); ?> ! Prêt à ajouter des jeux à ta collection ?</h1>
     <div class="game-list">
         <?php foreach ($userGames as $game): ?>
             <div class="game-card">

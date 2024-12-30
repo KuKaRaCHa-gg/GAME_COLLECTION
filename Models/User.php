@@ -20,6 +20,14 @@ function loginUser($pdo, $email, $password)
     }
 }
 
+function getPrenom($pdo, $id)
+{
+    $query = $pdo->prepare("SELECT pren_user FROM UTILISATEUR WHERE id_user = :id");
+    $query->bindParam(':id', $id, PDO::PARAM_INT);
+    $query->execute();
+    $row = $query->fetch(PDO::FETCH_ASSOC);
+    return $row['pren_user'];
+}
 
 function getUser($pdo, $id)
 {
