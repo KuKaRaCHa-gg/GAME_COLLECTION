@@ -1,6 +1,6 @@
 <?php include 'header.php'; ?>
 <div class="home-container">
-    <h1>Salut <?= htmlspecialchars($_SESSION['prenom'] ?? 'Utilisateur'); ?> ! Prêt à ajouter des jeux à ta collection ?</h1>
+    <h1>Salut <?= htmlspecialchars($_SESSION['pren_user'] ?? 'Utilisateur'); ?> ! Prêt à ajouter des jeux à ta collection ?</h1>
     <div class="game-list">
         <?php foreach ($userGames as $game): ?>
             <div class="game-card">

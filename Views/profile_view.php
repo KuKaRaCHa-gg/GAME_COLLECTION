@@ -14,3 +14,4 @@ $pdo = connexion(); ?>
     
 </body>
 </html>
+<?php include 'footer.php'; ?>
