@@ -68,7 +68,7 @@ function getUser($pdo, $id)
                 $query->bindParam(':mail_user', $_POST['mail_user'], PDO::PARAM_STR);
                 $query->bindParam(':id', $id, PDO::PARAM_INT);
                 $query->execute();
-                header("Location: index.php?action=login");
+                header("Location: index.php?action=profile");
                 exit();
             } elseif ($_POST['mdp'] == $_POST['mdp2']) {
                 $mdp = password_hash($_POST['mdp'], PASSWORD_DEFAULT);
@@ -79,7 +79,7 @@ function getUser($pdo, $id)
                 $query->bindParam(':mdp_user', $mdp, PDO::PARAM_STR);
                 $query->bindParam(':id', $id, PDO::PARAM_INT);
                 $query->execute();
-                header("Location: index.php?action=login");
+                header("Location: index.php?action=profile");
                 exit();
             } else {
                 echo 'Les mots de passe ne correspondent pas';
