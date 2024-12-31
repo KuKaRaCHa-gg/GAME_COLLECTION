@@ -20,6 +20,29 @@ function loginUser($pdo, $email, $password)
     }
 }
 
+
+function createUser($pdo, $nom, $prenom, $email, $password)
+{
+    $query = $pdo->prepare("SELECT * FROM UTILISATEUR WHERE mail_user = :email");
+    $query->bindParam(':email', $email, PDO::PARAM_STR);
+    $query->execute();
+    $row = $query->fetch(PDO::FETCH_ASSOC);
+    if ($row) {
+        echo 'Un utilisateur avec cette email existe deja';
+    } else {
+        $mdp = password_hash($password, PASSWORD_DEFAULT);
+        $query = $pdo->prepare("INSERT INTO UTILISATEUR (nom_user, pren_user, mail_user, mdp_user) VALUES (:nom, :prenom, :email, :mdp)");
+        $query->bindParam(':nom', $nom, PDO::PARAM_STR);
+        $query->bindParam(':prenom', $prenom, PDO::PARAM_STR);
+        $query->bindParam(':email', $email, PDO::PARAM_STR);
+        $query->bindParam(':mdp', $mdp, PDO::PARAM_STR);
+        $query->execute();
+        header("Location: index.php?action=login");
+        exit();
+    }
+}
+
+
 function getPrenom($pdo, $id)
 {
     $query = $pdo->prepare("SELECT pren_user FROM UTILISATEUR WHERE id_user = :id");
@@ -84,12 +107,13 @@ function getUser($pdo, $id)
             } else {
                 echo 'Les mots de passe ne correspondent pas';
             }
-        } /*elseif ($_POST['submit'] == 'Supprimer mon compte') {
+        } elseif ($_POST['submit'] == 'Supprimer mon compte') {
             $query = $pdo->prepare("DELETE FROM UTILISATEUR WHERE id_user = :id");
             $query->bindParam(':id', $id, PDO::PARAM_INT);
             $query->execute();
-            echo 'Utilisateur supprimé';
-        }*/ elseif ($_POST['submit'] == 'Se déconnecter') {
+            header("Location: index.php?action=login");
+            exit();
+        } elseif ($_POST['submit'] == 'Se déconnecter') {
             session_destroy();
             header("Location: index.php?action=login");
             exit();
