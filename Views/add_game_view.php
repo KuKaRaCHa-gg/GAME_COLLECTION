@@ -1,23 +1,28 @@
 <?php include 'header.php'; ?>
-<link rel="stylesheet" type="text/css" href="Assets/CSS/General.css">
+<head>
+    <title>Ajouter un jeu à sa bibliothèque</title>
+    <!-- Inclure les CSS existants -->
+    <link rel="stylesheet" type="text/css" href="Assets/CSS/General.css">
     <link rel="stylesheet" type="text/css" href="Assets/CSS/NavBar.css">
     <link rel="stylesheet" type="text/css" href="Assets/CSS/FormulaireConnexion.css">
-    <link rel="stylesheet" type="text/css" href="Assets/CSS/Library.css">
-    <link rel="stylesheet" type="text/css" href="Assets/CSS/Loading.css">
+</head>
+
 <div class="add-game-container">
     <h1>Ajouter un jeu à sa bibliothèque</h1>
-    <p>Vérifiez si le jeu que vous souhaitez ajouter existe déjà dans la base de données. Sinon, ajoutez-le !</p>
+    <p>Recherchez d'abord si le jeu que vous souhaitez ajouter existe déjà dans la base de données. Sinon, ajoutez-le directement !</p>
 
-    <form action="index.php?action=add_game" method="POST">
+    <!-- Formulaire pour rechercher un jeu -->
+    <form action="index.php?action=add_game" method="POST" class="search-form">
         <label for="search_game">Rechercher un jeu :</label>
         <input type="text" id="search_game" name="search_game" placeholder="Nom du jeu">
-        <button type="submit" name="action" value="search_game">Rechercher</button>
+        <button type="submit" name="search_action" value="search_game">Rechercher</button>
     </form>
 
     <hr>
 
+    <!-- Formulaire pour ajouter un nouveau jeu -->
     <h2>Ajouter un nouveau jeu</h2>
-    <form action="index.php?action=add_game" method="POST">
+    <form action="index.php?action=add_game" method="POST" class="add-game-form">
         <label for="nom_game">Nom du jeu :</label>
         <input type="text" id="nom_game" name="nom_game" placeholder="Nom du jeu" required>
 
@@ -28,7 +33,7 @@
         <input type="date" id="release_game" name="release_game" required>
 
         <label>Plateformes :</label>
-        <div>
+        <div class="checkbox-group">
             <input type="checkbox" id="playstation" name="plateformes[]" value="Playstation">
             <label for="playstation">Playstation</label>
 
@@ -42,13 +47,17 @@
             <label for="pc">PC</label>
         </div>
 
+        <label for="desc_game">Description :</label>
+        <textarea id="desc_game" name="desc_game" placeholder="Décrivez le jeu (facultatif)"></textarea>
+
         <label for="url_cover_game">URL de la cover :</label>
         <input type="url" id="url_cover_game" name="url_cover_game" placeholder="URL de la cover" required>
 
-        <label for="url_site_game">URL du site :</label>
-        <input type="url" id="url_site_game" name="url_site_game" placeholder="URL du site" required>
+        <label for="url_site_game">URL du site officiel :</label>
+        <input type="url" id="url_site_game" name="url_site_game" placeholder="URL du site officiel" required>
 
-        <button type="submit">Ajouter le jeu</button>
+        <button type="submit" name="add_action" value="add_game">Ajouter le jeu</button>
     </form>
 </div>
+
 <?php include 'footer.php'; ?>

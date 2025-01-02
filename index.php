@@ -20,7 +20,6 @@ $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->load();
 
 session_start(); // Démarrer la session
-//require_once __DIR__ . './config/database.php'; // Connexion à la base de données
 require_once 'Models/fonctionDB.php';
 require_once 'Models/User.php';
 $pdo = connexion();
@@ -37,60 +36,78 @@ spl_autoload_register(function ($class) {
     }
 });
 
-
 // Sécuriser la variable d'action
-$action = isset($_GET['action']) ? htmlspecialchars($_GET['action']) : 'home';
+$action = isset($_GET['action']) ? htmlspecialchars($_GET['action']) : 'login';
 
-// Vérifier si l'utilisateur est connecté pour les actions sécurisées 
+/*
+// Rediriger les utilisateurs non connectés vers la page de connexion
+$actions_non_securisees = ['login', 'register'];
 
-/*if (!isset($_SESSION['user_id']) && !in_array($action, ['login', 'register'])) {
+if (!isset($_SESSION['user_id']) && !in_array($action, $actions_non_securisees)) {
     header("Location: index.php?action=login");
     exit();
-}*/
-echo "Action : $action"; // Vérifiez si l'action est correctement définie
-echo "Session User ID : " . ($_SESSION['user_id'] ?? 'Non défini'); // Vérifiez si la session est valide
-
-
-
+}
+*/
 
 // Routage
 switch ($action) {
+    /*
     case 'login':
         require_once 'Views/login_view.php';
         break;
-
+    */
+    
     case 'register':
         require_once 'Views/register_view.php';
         break;
 
     case 'logout':
+        /*
         session_destroy();
         header("Location: index.php?action=login");
         exit();
+        */
+        break;
 
     case 'add_game':
-        $gameController = new GameController();
+        // Suppression de la vérification de connexion
+        $gameController = new GameController($pdo);
         $gameController->addGame();
         require_once 'Views/add_game_view.php';
         break;
 
     case 'ranking':
-        $rankingController = new RankingController();
+        // Suppression de la vérification de connexion
+        $rankingController = new RankingController($pdo);
         $topPlayers = $rankingController->getTopPlayers();
         require_once 'Views/ranking_view.php';
         break;
 
-    case 'profile':
-        /*$authController = new AuthController();
-        $userProfile = $authController->getUserProfile($_SESSION['user_id']);*/
-        require_once 'Views/profile_view.php';
+    case 'library':
+        // Suppression de la vérification de connexion
+        require_once 'Views/LibraryView.php';
         break;
 
     case 'home':
-    default:
-        /*$gameController = new GameController();
-        $userGames = $gameController->getUserGames($_SESSION['user_id']);*/
+        // Suppression de la vérification de connexion
+        $gameController = new GameController($pdo);
+        $userGames = $gameController->getUserGames($_SESSION['user_id'] ?? null);
         require_once 'Views/home_view.php';
+        break;
+
+    case 'profile':
+        // Suppression de la vérification de connexion
+        $authController = new AuthController($pdo);
+        $userProfile = $authController->getUserProfile($_SESSION['user_id'] ?? null);
+        require_once 'Views/profile_view.php';
+        break;
+
+    case 'loading':
+        require_once 'Views/Loading.php';
+        break;
+
+    default:
+        echo "<p>Page introuvable.</p>";
         break;
 }
 ?>
