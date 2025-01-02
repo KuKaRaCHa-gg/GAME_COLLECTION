@@ -64,11 +64,35 @@ try {
             header("Location: index.php?action=login");
             exit();
 
-        case 'add_game':
-            $gameController = new GameController($pdo);
-            $gameController->addGame();
-            require_once 'Views/add_game_view.php';
-            break;
+            case 'add_game':
+                $gameController = new GameController($pdo);
+            
+                if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                    // Si une recherche est effectuée
+                    if (isset($_POST['search_action']) && $_POST['search_action'] === 'search_game') {
+                        $searchGame = htmlspecialchars($_POST['search_game']);
+                        $results = $gameController->searchGame($searchGame);
+                        require_once 'Views/add_game_view.php';
+                    }
+                    // Si un jeu est ajouté
+                    elseif (isset($_POST['add_action']) && $_POST['add_action'] === 'add_game') {
+                        $nomGame = htmlspecialchars($_POST['nom_game']);
+                        $editGame = htmlspecialchars($_POST['edit_game']);
+                        $releaseGame = htmlspecialchars($_POST['release_game']);
+                        $plateformes = isset($_POST['plateformes']) ? implode(', ', $_POST['plateformes']) : '';
+                        $descGame = htmlspecialchars($_POST['desc_game']);
+                        $urlCover = htmlspecialchars($_POST['url_cover_game']);
+                        $urlSite = htmlspecialchars($_POST['url_site_game']);
+            
+                        $gameController->addGame($nomGame, $editGame, $releaseGame, $plateformes, $descGame, $urlCover, $urlSite);
+                        $successMessage = "Le jeu <strong>$nomGame</strong> a été ajouté avec succès !";
+                        require_once 'Views/add_game_view.php';
+                    }
+                } else {
+                    require_once 'Views/add_game_view.php';
+                }
+                break;
+            
 
         case 'ranking':
             $rankingController = new RankingController($pdo);
