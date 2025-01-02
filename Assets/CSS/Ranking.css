@@ -6,19 +6,20 @@
 }
 
 .table-container {
-    width: 90%; 
+    width: 100%; 
     margin: 0 auto;
     text-align: center;
 }
 
 table {
-    width: 90%;
+    width: 100%;
     margin: 0 auto;
     border-collapse: collapse;
 }
 
 th, td {
-    padding: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     text-align: left;
     color: #e1e1e6;
 }

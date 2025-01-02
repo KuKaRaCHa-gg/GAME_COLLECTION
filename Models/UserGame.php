@@ -9,7 +9,7 @@ WHERE (LIBRARY.id_user, time_game) IN (SELECT LIBRARY.id_user, MAX(time_game) FR
     foreach ($result as $row) {
         echo "<tr>";
         echo "<td>" . $row['nom_user'] . " " . $row['pren_user'] . "</td>";
-        echo "<td>" . $row['time_game'] . "</td>";
+        echo "<td>" . $row['time_game'] . " h" ."</td>";
         echo "<td>" . $row['nom_game'] . "</td>";
         echo "</tr>";
     }
