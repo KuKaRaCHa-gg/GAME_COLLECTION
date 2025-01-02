@@ -6,7 +6,6 @@
     <title>Game Collection</title>
     <!-- Inclusion des fichiers CSS -->
     <link rel="stylesheet" type="text/css" href="Assets/CSS/General.css">
-    <!--<link rel="stylesheet" type="text/css" href="Assets/CSS/NavBar.css">-->
     <link rel="stylesheet" type="text/css" href="Assets/CSS/FormulaireConnexion.css">
     <link rel="stylesheet" type="text/css" href="Assets/CSS/Library.css">
     <link rel="stylesheet" type="text/css" href="Assets/CSS/Loading.css">
@@ -22,8 +21,6 @@ $dotenv->load();
 session_start(); // Démarrer la session
 require_once 'Models/fonctionDB.php';
 require_once 'Models/User.php';
-
-// Connexion à la base de données
 $pdo = connexion();
 
 // Autochargement des classes
@@ -38,12 +35,18 @@ spl_autoload_register(function ($class) {
     }
 });
 
-// Déterminer l'action
-$action = isset($_GET['action']) ? htmlspecialchars($_GET['action']) : 'home';
+// Sécuriser la variable d'action
+$action = isset($_GET['action']) ? htmlspecialchars($_GET['action']) : 'login';
 
-// Messages de débogage
-echo "Action : $action<br>"; 
-echo "Session User ID : " . ($_SESSION['user_id'] ?? 'Non défini') . "<br>";
+// Liste des actions accessibles sans connexion
+$actions_non_securisees = ['login', 'register'];
+
+// Vérifier si l'utilisateur est connecté
+if (!isset($_SESSION['user_id']) && !in_array($action, $actions_non_securisees)) {
+    // Rediriger vers la page de connexion si l'utilisateur n'est pas connecté
+    header("Location: index.php?action=login");
+    exit();
+}
 
 // Routage
 try {
@@ -62,31 +65,35 @@ try {
             exit();
 
         case 'add_game':
-            // Vérifier si GameController est chargé
-            if (!class_exists('GameController')) {
-                throw new Exception("GameController non défini");
-            }
             $gameController = new GameController($pdo);
             $gameController->addGame();
             require_once 'Views/add_game_view.php';
             break;
 
         case 'ranking':
-            if (!class_exists('RankingController')) {
-                throw new Exception("RankingController non défini");
-            }
             $rankingController = new RankingController($pdo);
             $topPlayers = $rankingController->getTopPlayers();
             require_once 'Views/ranking_view.php';
             break;
 
-        case 'profile':
-            require_once 'Views/profile_view.php';
+        case 'library':
+            require_once 'Views/LibraryView.php';
             break;
 
         case 'home':
-        default:
+            $gameController = new GameController($pdo);
+            $userGames = $gameController->getUserGames($_SESSION['user_id']);
             require_once 'Views/home_view.php';
+            break;
+
+        case 'profile':
+            $authController = new AuthController($pdo);
+            $userProfile = $authController->getUserProfile($_SESSION['user_id']);
+            require_once 'Views/profile_view.php';
+            break;
+
+        default:
+            echo "<p>Page introuvable.</p>";
             break;
     }
 } catch (Exception $e) {
