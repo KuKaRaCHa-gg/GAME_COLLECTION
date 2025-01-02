@@ -19,8 +19,6 @@
         <button type="submit" name="search_action" value="search_game" class="btn">Rechercher</button>
     </form>
 
-    <hr>
-
     <!-- Formulaire d'ajout -->
     <h2 class="section-title">Ajouter un nouveau jeu</h2>
     <form action="index.php?action=add_game" method="POST" class="form-add-game">
