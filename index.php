@@ -68,30 +68,45 @@ try {
                 $gameController = new GameController($pdo);
             
                 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                    // Si une recherche est effectuée
-                    if (isset($_POST['search_action']) && $_POST['search_action'] === 'search_game') {
-                        $searchGame = htmlspecialchars($_POST['search_game']);
-                        $results = $gameController->searchGame($searchGame);
-                        require_once 'Views/add_game_view.php';
-                    }
-                    // Si un jeu est ajouté
-                    elseif (isset($_POST['add_action']) && $_POST['add_action'] === 'add_game') {
+                    if (isset($_POST['add_action']) && $_POST['add_action'] === 'add_game') {
                         $nomGame = htmlspecialchars($_POST['nom_game']);
                         $editGame = htmlspecialchars($_POST['edit_game']);
                         $releaseGame = htmlspecialchars($_POST['release_game']);
                         $plateformes = isset($_POST['plateformes']) ? implode(', ', $_POST['plateformes']) : '';
-                        $descGame = htmlspecialchars($_POST['desc_game']);
+                        $descGame = htmlspecialchars($_POST['desc_game'] ?? '');
                         $urlCover = htmlspecialchars($_POST['url_cover_game']);
                         $urlSite = htmlspecialchars($_POST['url_site_game']);
             
-                        $gameController->addGame($nomGame, $editGame, $releaseGame, $plateformes, $descGame, $urlCover, $urlSite);
-                        $successMessage = "Le jeu <strong>$nomGame</strong> a été ajouté avec succès !";
-                        require_once 'Views/add_game_view.php';
+                        // Vérifier si le jeu existe déjà
+                        $stmt = $pdo->prepare("SELECT * FROM GAME WHERE nom_game = :nom_game");
+                        $stmt->execute([':nom_game' => $nomGame]);
+                        if ($stmt->fetch(PDO::FETCH_ASSOC)) {
+                            $message = "Erreur : Le jeu \"$nomGame\" existe déjà dans la base de données.";
+                            $messageType = "error"; // Type d'erreur
+                        } else {
+                            // Ajouter le jeu
+                            $stmt = $pdo->prepare("
+                                INSERT INTO GAME (nom_game, edit_game, release_game, type_plateforme, desc_game, url_cover_game, url_site_game)
+                                VALUES (:nom_game, :edit_game, :release_game, :type_plateforme, :desc_game, :url_cover_game, :url_site_game)
+                            ");
+                            $stmt->execute([
+                                ':nom_game' => $nomGame,
+                                ':edit_game' => $editGame,
+                                ':release_game' => $releaseGame,
+                                ':type_plateforme' => $plateformes,
+                                ':desc_game' => $descGame,
+                                ':url_cover_game' => $urlCover,
+                                ':url_site_game' => $urlSite
+                            ]);
+            
+                            $message = "Le jeu \"$nomGame\" a été ajouté avec succès !";
+                            $messageType = "success"; // Type de succès
+                        }
                     }
-                } else {
-                    require_once 'Views/add_game_view.php';
                 }
+                require_once 'Views/add_game_view.php';
                 break;
+                      
             
 
         case 'ranking':

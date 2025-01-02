@@ -1,10 +1,29 @@
 <?php include 'header.php'; ?>
+
 <head>
     <title>Ajouter un jeu à sa bibliothèque</title>
     <link rel="stylesheet" type="text/css" href="Assets/CSS/General.css">
-    <link rel="stylesheet" type="text/css" href="Assets/CSS/NavBar.css">
+    <!--<link rel="stylesheet" type="text/css" href="Assets/CSS/NavBar.css">-->
     <link rel="stylesheet" type="text/css" href="Assets/CSS/FormulaireConnexion.css">
 </head>
+
+<!-- Affichage des messages -->
+<?php if (!empty($message)) : ?>
+<div class="message-container <?php echo $messageType ?? 'info'; ?>">
+    <strong>
+        <?php 
+            if ($messageType === 'success') {
+                echo "Succès :";
+            } elseif ($messageType === 'error') {
+                echo "Erreur :";
+            } else {
+                echo "Information :";
+            }
+        ?>
+    </strong>
+    <p><?php echo htmlspecialchars($message); ?></p>
+</div>
+<?php endif; ?>
 
 <div class="container">
     <h1 class="page-title">Ajouter un jeu à sa bibliothèque</h1>
