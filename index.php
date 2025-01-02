@@ -6,6 +6,7 @@
     <title>Game Collection</title>
     <!-- Inclusion des fichiers CSS -->
     <link rel="stylesheet" type="text/css" href="Assets/CSS/General.css">
+    <link rel="stylesheet" type="text/css" href="Assets/CSS/NavBar.css">
     <link rel="stylesheet" type="text/css" href="Assets/CSS/FormulaireConnexion.css">
     <link rel="stylesheet" type="text/css" href="Assets/CSS/Library.css">
     <link rel="stylesheet" type="text/css" href="Assets/CSS/Loading.css">
@@ -111,7 +112,7 @@ try {
             
 
         case 'ranking':
-            $rankingController = new RankingController($pdo);
+            /*$rankingController = new RankingController($pdo);
             $topPlayers = $rankingController->getTopPlayers();*/
             require_once 'Views/ranking_view.php';
             break;
