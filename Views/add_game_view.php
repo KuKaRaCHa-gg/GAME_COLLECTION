@@ -19,6 +19,8 @@
         <button type="submit" name="search_action" value="search_game" class="btn">Rechercher</button>
     </form>
 
+    <hr>
+
     <!-- Formulaire d'ajout -->
     <h2 class="section-title">Ajouter un nouveau jeu</h2>
     <form action="index.php?action=add_game" method="POST" class="form-add-game">
@@ -52,6 +54,11 @@
                 <input type="checkbox" id="pc" name="plateformes[]" value="PC">
                 <label for="pc">PC</label>
             </div>
+        </div>
+
+        <div class="form-group">
+            <label for="desc_game">Description :</label>
+            <textarea id="desc_game" name="desc_game" placeholder="Ajoutez une description du jeu (facultatif)" rows="4"></textarea>
         </div>
 
         <div class="form-group">
