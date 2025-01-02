@@ -47,9 +47,6 @@
             <label for="pc">PC</label>
         </div>
 
-        <label for="desc_game">Description :</label>
-        <textarea id="desc_game" name="desc_game" placeholder="Décrivez le jeu (facultatif)"></textarea>
-
         <label for="url_cover_game">URL de la cover :</label>
         <input type="url" id="url_cover_game" name="url_cover_game" placeholder="URL de la cover" required>
 
