@@ -1,4 +1,9 @@
 <?php include 'header.php'; ?>
+<link rel="stylesheet" type="text/css" href="Assets/CSS/General.css">
+    <link rel="stylesheet" type="text/css" href="Assets/CSS/NavBar.css">
+    <link rel="stylesheet" type="text/css" href="Assets/CSS/FormulaireConnexion.css">
+    <link rel="stylesheet" type="text/css" href="Assets/CSS/Library.css">
+    <link rel="stylesheet" type="text/css" href="Assets/CSS/Loading.css">
 <div class="add-game-container">
     <h1>Ajouter un jeu à sa bibliothèque</h1>
     <p>Vérifiez si le jeu que vous souhaitez ajouter existe déjà dans la base de données. Sinon, ajoutez-le !</p>
