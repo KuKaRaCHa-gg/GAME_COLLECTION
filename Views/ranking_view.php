@@ -1,6 +1,21 @@
-<?php include 'header.php'; ?>
+<?php include 'header.php'; 
+require_once 'Models/UserGame.php';
+require_once 'Models/fonctionDB.php';
+$pdo = connexion(); ?>
 <div class="ranking-container">
-    <h1>Classement des Joueurs</h1>
+</br>
+    </br>
+    </br>
+<h2>Classement des temps passés</h2>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+
     <table>
         <thead>
             <tr>
@@ -10,13 +25,7 @@
             </tr>
         </thead>
         <tbody>
-            <?php foreach ($topPlayers as $player): ?>
-                <tr>
-                    <td><?= htmlspecialchars($player['name']); ?></td>
-                    <td><?= htmlspecialchars($player['hours_played']); ?>h</td>
-                    <td><?= htmlspecialchars($player['favorite_game']); ?></td>
-                </tr>
-            <?php endforeach; ?>
+            <?php getTopRanking($pdo)?>
         </tbody>
     </table>
 </div>

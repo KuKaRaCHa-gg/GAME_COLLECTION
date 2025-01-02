@@ -75,8 +75,8 @@ switch ($action) {
         break;
 
     case 'ranking':
-        $rankingController = new RankingController();
-        $topPlayers = $rankingController->getTopPlayers();
+        /*$rankingController = new RankingController();
+        $topPlayers = $rankingController->getTopPlayers();*/
         require_once 'Views/ranking_view.php';
         break;
 
