@@ -6,7 +6,7 @@
     <title>Game Collection</title>
     <!-- Inclusion des fichiers CSS -->
     <link rel="stylesheet" type="text/css" href="Assets/CSS/General.css">
-    <link rel="stylesheet" type="text/css" href="Assets/CSS/NavBar.css">
+    <!--<link rel="stylesheet" type="text/css" href="Assets/CSS/NavBar.css">-->
     <link rel="stylesheet" type="text/css" href="Assets/CSS/FormulaireConnexion.css">
     <link rel="stylesheet" type="text/css" href="Assets/CSS/Library.css">
     <link rel="stylesheet" type="text/css" href="Assets/CSS/Loading.css">
@@ -22,6 +22,8 @@ $dotenv->load();
 session_start(); // Démarrer la session
 require_once 'Models/fonctionDB.php';
 require_once 'Models/User.php';
+
+// Connexion à la base de données
 $pdo = connexion();
 
 // Autochargement des classes
@@ -36,79 +38,60 @@ spl_autoload_register(function ($class) {
     }
 });
 
-// Sécuriser la variable d'action
-$action = isset($_GET['action']) ? htmlspecialchars($_GET['action']) : 'login';
+// Déterminer l'action
+$action = isset($_GET['action']) ? htmlspecialchars($_GET['action']) : 'home';
 
-/*
-// Rediriger les utilisateurs non connectés vers la page de connexion
-$actions_non_securisees = ['login', 'register'];
-
-if (!isset($_SESSION['user_id']) && !in_array($action, $actions_non_securisees)) {
-    header("Location: index.php?action=login");
-    exit();
-}
-*/
+// Messages de débogage
+echo "Action : $action<br>"; 
+echo "Session User ID : " . ($_SESSION['user_id'] ?? 'Non défini') . "<br>";
 
 // Routage
-switch ($action) {
-    /*
-    case 'login':
-        require_once 'Views/login_view.php';
-        break;
-    */
-    
-    case 'register':
-        require_once 'Views/register_view.php';
-        break;
+try {
+    switch ($action) {
+        case 'login':
+            require_once 'Views/login_view.php';
+            break;
 
-    case 'logout':
-        /*
-        session_destroy();
-        header("Location: index.php?action=login");
-        exit();
-        */
-        break;
+        case 'register':
+            require_once 'Views/register_view.php';
+            break;
 
-    case 'add_game':
-        // Suppression de la vérification de connexion
-        $gameController = new GameController($pdo);
-        $gameController->addGame();
-        require_once 'Views/add_game_view.php';
-        break;
+        case 'logout':
+            session_destroy();
+            header("Location: index.php?action=login");
+            exit();
 
-    case 'ranking':
-        // Suppression de la vérification de connexion
-        $rankingController = new RankingController($pdo);
-        $topPlayers = $rankingController->getTopPlayers();
-        require_once 'Views/ranking_view.php';
-        break;
+        case 'add_game':
+            // Vérifier si GameController est chargé
+            if (!class_exists('GameController')) {
+                throw new Exception("GameController non défini");
+            }
+            $gameController = new GameController($pdo);
+            $gameController->addGame();
+            require_once 'Views/add_game_view.php';
+            break;
 
-    case 'library':
-        // Suppression de la vérification de connexion
-        require_once 'Views/LibraryView.php';
-        break;
+        case 'ranking':
+            if (!class_exists('RankingController')) {
+                throw new Exception("RankingController non défini");
+            }
+            $rankingController = new RankingController($pdo);
+            $topPlayers = $rankingController->getTopPlayers();
+            require_once 'Views/ranking_view.php';
+            break;
 
-    case 'home':
-        // Suppression de la vérification de connexion
-        $gameController = new GameController($pdo);
-        $userGames = $gameController->getUserGames($_SESSION['user_id'] ?? null);
-        require_once 'Views/home_view.php';
-        break;
+        case 'profile':
+            require_once 'Views/profile_view.php';
+            break;
 
-    case 'profile':
-        // Suppression de la vérification de connexion
-        $authController = new AuthController($pdo);
-        $userProfile = $authController->getUserProfile($_SESSION['user_id'] ?? null);
-        require_once 'Views/profile_view.php';
-        break;
-
-    case 'loading':
-        require_once 'Views/Loading.php';
-        break;
-
-    default:
-        echo "<p>Page introuvable.</p>";
-        break;
+        case 'home':
+        default:
+            require_once 'Views/home_view.php';
+            break;
+    }
+} catch (Exception $e) {
+    // Gestion des erreurs
+    echo "<p>Erreur : " . $e->getMessage() . "</p>";
 }
 ?>
 </body>
