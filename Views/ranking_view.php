@@ -2,25 +2,18 @@
 require_once 'Models/UserGame.php';
 require_once 'Models/fonctionDB.php';
 $pdo = connexion(); ?>
-<div class="ranking-container">
+<div class="table-container">
 </br>
     </br>
     </br>
-<h2>Classement des temps passés</h2>
-    </br>
-    </br>
-    </br>
-    </br>
-    </br>
-    </br>
-    </br>
-    </br>
+    <div>
+<h2 class="RankingTitre">Classement des temps passés</h2>
 
-    <table>
+    <table style ='width: 80%;'>
         <thead>
             <tr>
-                <th>Nom</th>
-                <th>Heures jouées</th>
+                <th>Joueur</th>
+                <th>Temps passés</th>
                 <th>Jeu favori</th>
             </tr>
         </thead>
@@ -28,5 +21,6 @@ $pdo = connexion(); ?>
             <?php getTopRanking($pdo)?>
         </tbody>
     </table>
+
 </div>
 <?php include 'footer.php'; ?>

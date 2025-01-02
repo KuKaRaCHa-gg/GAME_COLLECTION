@@ -3,7 +3,7 @@
 function getTopRanking($pdo)
 {
     $query = $pdo->prepare("SELECT nom_user, pren_user, time_game, nom_game FROM GAME INNER JOIN LIBRARY ON GAME.id_game = LIBRARY.id_game INNER JOIN UTILISATEUR ON LIBRARY.id_user = UTILISATEUR.id_user
-     ORDER BY time_game ASC");
+    ORDER BY time_game DESC LIMIT 20");
     $query->execute();
     $result = $query->fetchAll(PDO::FETCH_ASSOC);
     foreach ($result as $row) {

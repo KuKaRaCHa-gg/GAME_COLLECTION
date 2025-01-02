@@ -6,10 +6,11 @@
     <title>Game Collection</title>
     <!-- Inclusion des fichiers CSS -->
     <link rel="stylesheet" type="text/css" href="Assets/CSS/General.css">
-    <!--<link rel="stylesheet" type="text/css" href="Assets/CSS/NavBar.css">-->
+    <link rel="stylesheet" type="text/css" href="Assets/CSS/NavBar.css">
     <link rel="stylesheet" type="text/css" href="Assets/CSS/FormulaireConnexion.css">
     <link rel="stylesheet" type="text/css" href="Assets/CSS/Library.css">
     <link rel="stylesheet" type="text/css" href="Assets/CSS/Loading.css">
+    <link rel="stylesheet" type="text/css" href="Assets/CSS/Ranking.css">
 </head>
 <body>
 
@@ -72,11 +73,11 @@ try {
             break;
 
         case 'ranking':
-            if (!class_exists('RankingController')) {
+            /*if (!class_exists('RankingController')) {
                 throw new Exception("RankingController non défini");
             }
             $rankingController = new RankingController($pdo);
-            $topPlayers = $rankingController->getTopPlayers();
+            $topPlayers = $rankingController->getTopPlayers();*/
             require_once 'Views/ranking_view.php';
             break;
 
