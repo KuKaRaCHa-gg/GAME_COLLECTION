@@ -1,9 +1,6 @@
-<?php include 'header.php'; ?>
-
 <!DOCTYPE>
 <html>
 <head>
-    <link rel="stylesheet" type="text/css" href="Assets/CSS/General.css">
     <link rel="stylesheet" type="text/css" href="Assets/CSS/Library.css">
 </head>
 <body>
@@ -11,7 +8,7 @@
     <h1>
         SALUT <?= htmlspecialchars(strtoupper(getPrenom($pdo, $_SESSION['user_id'])) ?? 'Utilisateur'); ?> !
         <br>
-        PRÊT À AJOUTER
+        PRÊT À AJOUTER DES
         <br>
         JEUX À TA COLLECTION ?
     </h1>

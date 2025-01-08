@@ -124,9 +124,14 @@ function getUserToModif($pdo, $id)
             header("Location: index.php?action=login");
             exit();
         } elseif ($_POST['submit'] == 'Se déconnecter') {
-            session_destroy();
-            header("Location: index.php?action=login");
-            exit();
+            logout();
         }
     }
+}
+
+function logout()
+{
+    session_destroy();
+    header("Location: index.php?action=login");
+    exit();
 }

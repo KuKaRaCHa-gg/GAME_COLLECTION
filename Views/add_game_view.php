@@ -1,5 +1,3 @@
-<?php include 'header.php'; ?>
-
 <head>
     <title>Ajouter un jeu à sa bibliothèque</title>
     <link rel="stylesheet" type="text/css" href="Assets/CSS/General.css">

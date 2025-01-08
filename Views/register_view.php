@@ -1,4 +1,4 @@
-<?php include 'header.php'; ?>
+
 <br>
 <div class="register-container">
     <form action="index.php?action=register" method="POST">

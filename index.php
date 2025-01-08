@@ -1,3 +1,5 @@
+<?php include 'Controllers/NavBar.php'; ?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -8,7 +10,7 @@
     <link rel="stylesheet" type="text/css" href="Assets/CSS/General.css">
     <link rel="stylesheet" type="text/css" href="Assets/CSS/NavBar.css">
     <link rel="stylesheet" type="text/css" href="Assets/CSS/FormulaireConnexion.css">
-    <link rel="stylesheet" type="text/css" href="Assets/CSS/Library.css">
+   
     <link rel="stylesheet" type="text/css" href="Assets/CSS/Loading.css">
     <link rel="stylesheet" type="text/css" href="Assets/CSS/Ranking.css">
     <link rel="stylesheet" type="text/css" href="Assets/CSS/Profil.css">

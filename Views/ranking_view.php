@@ -1,4 +1,4 @@
-<?php include 'header.php'; 
+<?php
 require_once 'Models/UserGame.php';
 require_once 'Models/fonctionDB.php';
 $pdo = connexion(); ?>
