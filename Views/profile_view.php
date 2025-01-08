@@ -22,18 +22,18 @@ require_once 'Models/User.php';
             <br>
             <form action="" method="post" class="formProfil">
         
-            <label for="nom_user">Nom :</label><br>
+            <label for="nom_user" class="labelProfil">Nom :</label><br>
             <input type="text" name="nom_user" value="<?php echo htmlspecialchars($row['nom_user']) ?>"><br>
         
-            <label for="pren_user">Prénom :</label><br>
+            <label for="pren_user" class="labelProfil">Prénom :</label><br>
             <input type="text" name="pren_user" value=<?php echo htmlspecialchars($row['pren_user']) ?>><br>
         
-            <label for="mail_user">Email :</label><br>
-            <input type="text" name="mail_user" value=<?php echo htmlspecialchars($row['mail_user']) ?>><br>
+            <label for="mail_user" class="labelProfil">Email :</label><br>
+            <input type="email" id=email name="mail_user" value=<?php echo htmlspecialchars($row['mail_user']) ?>><br>
         
-            <label for="mdp_user">Mot de passe :</label><br>
+            <label for="mdp_user" class="labelProfil">Mot de passe :</label><br>
             <input type="password" name="mdp" ><br>
-            <label for="mdp_user">Confirmer le mot de passe :</label><br>
+            <label for="mdp_user" class="labelProfil">Confirmer le mot de passe :</label><br>
             <input type="password" name="mdp2" ><br>
         
             <input type="submit" name="submit" value="MODIFIER" class="boutonProfil"><br>

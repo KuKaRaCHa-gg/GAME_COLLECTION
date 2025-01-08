@@ -52,3 +52,23 @@
     margin-top: 10px;
     margin-bottom: 20;
 }
+
+.formProfil input[type="text"],
+.formProfil input[type="email"],
+.formProfil input[type="password"]{
+    background-color: #2B2F40;
+    width: 25%;
+    padding: 10px;
+    border-color: #2B2F40;
+    border-style: solid;
+    margin-left: initial;
+    margin-bottom: 20px;
+    margin-top: -20px;
+    border-radius: 5px;
+    box-sizing: border-box;
+    color: #ffffff;
+}
+
+.labelProfil {
+    margin-left: initial;
+}
