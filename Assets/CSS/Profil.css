@@ -1,12 +1,11 @@
 .titreProfil {
-    font-size: 30px;
+    font-size: 250%;
     font-weight: bold;
     margin-top: 20px;
     margin-bottom: 20px;
 }
 
 .profil {
-    font-size: 27px;
     margin-bottom: 20px;
     margin-left: 10%;
     text-align: left;
@@ -28,3 +27,28 @@
     padding-bottom: initial;
 }
 
+.boutonProfil {
+    font: 100% "Barlow", sans-serif;
+    display: block;
+    background-color: #6757D6;
+    color: white;
+    font-weight: 600;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: -7.5px;
+}
+
+.boutonProfil:hover {
+    background-color: #463897;
+    transition: 0.3s;
+}
+
+.profilTexte {
+    font: 100% "Barlow", sans-serif;
+    font-size: 120%;
+    margin-top: 10px;
+    margin-bottom: 20;
+}

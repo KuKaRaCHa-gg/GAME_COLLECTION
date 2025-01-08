@@ -47,6 +47,7 @@ form select {
     margin-bottom: 10px;
     border-radius: 5px;
     box-sizing: border-box;
+    color: #ffffff;
 }
 
 form input[type="checkbox"] {
