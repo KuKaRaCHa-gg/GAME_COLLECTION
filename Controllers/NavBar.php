@@ -1,4 +1,4 @@
 <?php
-require '../Models/NavBar.php';
-require '../Views/NavBar.php';
+require 'Models/NavBar.php';
+require 'Views/NavBar.php';
 
