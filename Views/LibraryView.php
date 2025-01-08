@@ -1,3 +1,5 @@
+<?php include 'header.php'; ?>
+
 <!DOCTYPE>
 <html>
 <head>
@@ -7,7 +9,7 @@
 <body>
     <img src="Assets/Images/Font.png" alt="fond" id="hero">
     <h1>
-        SALUT <?= htmlspecialchars(getPrenom($pdo, $_SESSION['user_id']) ?? 'Utilisateur'); ?> !
+        SALUT <?= htmlspecialchars(strtoupper(getPrenom($pdo, $_SESSION['user_id'])) ?? 'Utilisateur'); ?> !
         <br>
         PRÊT À AJOUTER
         <br>
