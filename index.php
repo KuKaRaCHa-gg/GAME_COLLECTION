@@ -128,8 +128,8 @@ try {
             break;
 
         case 'profile':
-            $authController = new AuthController($pdo);
-            $userProfile = $authController->getUserProfile($_SESSION['user_id']);
+            /*$authController = new AuthController($pdo);
+            $userProfile = $authController->getUserProfile($_SESSION['user_id']);*/
             require_once 'Views/profile_view.php';
             break;
 

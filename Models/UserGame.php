@@ -25,15 +25,5 @@ function getUserGame($pdo, $id)
     $query->bindParam(':id', $id, PDO::PARAM_INT);
     $query->execute();
     $result = $query->fetchAll(PDO::FETCH_ASSOC);
-
-    foreach ($result as $row) {
-        echo "<div class='game-card'>";
-        if (!empty($row['url_cover_game'])) {
-            echo '<img src="' . htmlspecialchars($row['url_cover_game']) . '" alt="Cover du jeu" width="15%" height="15%">';
-        }
-        echo "<h2>" . $row['nom_game'] . "</h2>";
-        echo "<p>Éditeur : " . $row['edit_game'] . "</p>";
-        echo "<p>Heures jouées : " . $row['time_game'] . "h</p>";
-        echo "</div>";
-    }
+    return $result;
 }

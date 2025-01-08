@@ -23,6 +23,7 @@ function loginUser($pdo, $email, $password)
 
 function createUser($pdo, $nom, $prenom, $email, $password)
 {
+    $nom = strtoupper($nom);
     $query = $pdo->prepare("SELECT * FROM UTILISATEUR WHERE mail_user = :email");
     $query->bindParam(':email', $email, PDO::PARAM_STR);
     $query->execute();
