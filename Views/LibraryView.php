@@ -1,11 +1,11 @@
 <!DOCTYPE>
 <html>
 <head>
-    <link rel="stylesheet" type="text/css" href="./../Assets/CSS/General.css">
-    <link rel="stylesheet" type="text/css" href="./../Assets/CSS/Library.css">
+    <link rel="stylesheet" type="text/css" href="Assets/CSS/General.css">
+    <link rel="stylesheet" type="text/css" href="Assets/CSS/Library.css">
 </head>
 <body>
-    <img src="./../Assets/Images/Font.png" alt="fond" id="hero">
+    <img src="Assets/Images/Font.png" alt="fond" id="hero">
     <h1>
         SALUT <?= htmlspecialchars(getPrenom($pdo, $_SESSION['user_id']) ?? 'Utilisateur'); ?> !
         <br>
