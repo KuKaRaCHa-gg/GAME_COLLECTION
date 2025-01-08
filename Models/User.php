@@ -53,7 +53,16 @@ function getPrenom($pdo, $id)
     return $row['pren_user'];
 }
 
-function getUser($pdo, $id)
+function getUser($pdo, $id){
+    $query = $pdo->prepare("SELECT * FROM UTILISATEUR WHERE id_user = :id");
+    $query->bindParam(':id', $id, PDO::PARAM_INT);
+    $query->execute();
+    $row = $query->fetch(PDO::FETCH_ASSOC);
+    return $row;
+}
+
+
+function getUserToModif($pdo, $id)
 {
     $query = $pdo->prepare("SELECT * FROM UTILISATEUR WHERE id_user = :id");
     $query->bindParam(':id', $id, PDO::PARAM_INT);

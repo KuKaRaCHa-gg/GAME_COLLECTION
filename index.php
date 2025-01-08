@@ -11,6 +11,8 @@
     <link rel="stylesheet" type="text/css" href="Assets/CSS/Library.css">
     <link rel="stylesheet" type="text/css" href="Assets/CSS/Loading.css">
     <link rel="stylesheet" type="text/css" href="Assets/CSS/Ranking.css">
+    <link rel="stylesheet" type="text/css" href="Assets/CSS/Profil.css">
+    <link rel="stylesheet" type="text/css" href="Assets/CSS/footer.css">
 </head>
 <body>
 
