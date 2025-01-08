@@ -89,8 +89,8 @@ function gestionMDP($pdo, $id, $mdp, $mdp2, $nom, $prenom, $email)
         $query->bindParam(':id', $id, PDO::PARAM_INT);
         $query->execute();
         $_POST['submit'] = '';
-        /*header("Location: index.php?action=profile");
-        exit();*/
+        header("Location: index.php?action=profile");
+        exit();
     } elseif ($mdp == $mdp2) {
         $mdp = password_hash($mdp, PASSWORD_DEFAULT);
         $query = $pdo->prepare("UPDATE UTILISATEUR SET nom_user = :nom_user, pren_user = :pren_user, mail_user = :mail_user, mdp_user = :mdp_user WHERE id_user = :id");
@@ -101,8 +101,8 @@ function gestionMDP($pdo, $id, $mdp, $mdp2, $nom, $prenom, $email)
         $query->bindParam(':id', $id, PDO::PARAM_INT);
         $query->execute();
         $_POST['submit'] = '';
-        /*header("Location: index.php?action=profile");
-        exit();*/
+        header("Location: index.php?action=profile");
+        exit();
     } else {
         echo 'Les mots de passe ne correspondent pas';
     }

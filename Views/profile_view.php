@@ -1,7 +1,7 @@
 <?php
 require_once 'Models/fonctionDB.php';
 require_once 'Models/User.php';
-$pdo = connexion(); ?>
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,11 +16,7 @@ $pdo = connexion(); ?>
 
     <?php 
     if (isset($_POST['submit'])) {
-        if ($_POST['submit'] == 'MODIFIER') {
-            gestionMDP($pdo, $_POST['mdp'], $_POST['mdp'], $_POST['mdp2'], $_POST['nom_user'], $_POST['pren_user'], $_POST['mail_user']);
-            exit();
-        } 
-        elseif ($_POST['submit'] == 'MODIFIER MON PROFILE') {
+        if ($_POST['submit'] == 'MODIFIER MON PROFILE') {
             $row = getUser($pdo, $_SESSION['user_id']);
             ?>
             <br>
@@ -51,18 +47,21 @@ $pdo = connexion(); ?>
         } elseif ($_POST['submit'] == 'SE DÉCONNECTER') {
             logout();
         }
-    } else {
-    $users = getUser($pdo, $_SESSION['user_id']); ?>
+     elseif ($_POST['submit'] == 'MODIFIER') {
+        gestionMDP($pdo, $_SESSION['user_id'], $_POST['mdp'], $_POST['mdp2'], $_POST['nom_user'], $_POST['pren_user'], $_POST['mail_user']);
+        exit();
+    } }else {
+        $users = getUser($pdo, $_SESSION['user_id']); ?>
 
-    <p class="profilTexte"> Nom : <?php echo htmlspecialchars($users['nom_user']); ?></p>
-    <p class="profilTexte"> Prénom : <?php echo htmlspecialchars($users['pren_user']); ?></p>
-    <p class="profilTexte"> Email : <?php echo htmlspecialchars($users['mail_user']); ?></p>
+        <p class="profilTexte"> Nom : <?php echo htmlspecialchars($users['nom_user']); ?></p>
+        <p class="profilTexte"> Prénom : <?php echo htmlspecialchars($users['pren_user']); ?></p>
+        <p class="profilTexte"> Email : <?php echo htmlspecialchars($users['mail_user']); ?></p>
 
-<form class="formProfil" action="" method="post">
-    <input type="submit" name="submit" value="MODIFIER MON PROFILE" class="boutonProfil"> <br>
-    <input type="submit" name="submit" value="SUPPRIMER MON COMPTE" class="boutonProfil"> <br>
-    <input type="submit" name="submit" value="SE DÉCONNECTER" class="boutonProfil"> <br>
-</form>
+        <form class="formProfil" action="" method="post">
+            <input type="submit" name="submit" value="MODIFIER MON PROFILE" class="boutonProfil"> <br>
+            <input type="submit" name="submit" value="SUPPRIMER MON COMPTE" class="boutonProfil"> <br>
+            <input type="submit" name="submit" value="SE DÉCONNECTER" class="boutonProfil"> <br>
+        </form>
 
     <?php }
      ?>
