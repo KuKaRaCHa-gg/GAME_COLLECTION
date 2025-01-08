@@ -1,4 +1,4 @@
-<?php include 'Controllers/NavBar.php';
+<?php include 'header.php';
 require_once 'Models/fonctionDB.php';
 require_once 'Models/User.php';
 $pdo = connexion(); ?>
