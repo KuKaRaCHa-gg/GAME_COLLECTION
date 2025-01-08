@@ -26,6 +26,8 @@
         </button>
     </div>
 </div>
-<div id="navbarCollision"></div>
+<div id="navbarCollision">
+    <a> a</a>
+</div>
 </body>
 </html>
