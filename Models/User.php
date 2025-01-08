@@ -70,6 +70,15 @@ function logout()
 
 function deleteUser($pdo, $id)
 {
+    $sql = $pdo->prepare("SELECT * FROM LIBRARY WHERE id_user = :id");
+    $sql->bindParam(':id', $id, PDO::PARAM_INT);
+    $sql->execute();
+    $row = $sql->fetch(PDO::FETCH_ASSOC);
+    if ($row) {
+        $query = $pdo->prepare("DELETE FROM LIBRARY WHERE id_user = :id");
+        $query->bindParam(':id', $id, PDO::PARAM_INT);
+        $query->execute();
+    }
     $query = $pdo->prepare("DELETE FROM UTILISATEUR WHERE id_user = :id");
     $query->bindParam(':id', $id, PDO::PARAM_INT);
     $query->execute();
