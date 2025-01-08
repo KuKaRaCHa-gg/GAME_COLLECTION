@@ -26,5 +26,6 @@
         </button>
     </div>
 </div>
+<div id="navbarCollision"></div>
 </body>
 </html>
