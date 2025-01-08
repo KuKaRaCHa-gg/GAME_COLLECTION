@@ -1,4 +1,10 @@
 <?php include 'header.php'; ?>
+<br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
 <div class="register-container">
     <form action="index.php?action=register" method="POST">
         <h1>Inscription</h1>

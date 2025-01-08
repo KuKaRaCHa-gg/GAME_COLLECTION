@@ -10,6 +10,9 @@ $pdo = connexion(); ?>
     <title>Document</title>
 </head>
 <body>
+<br>
+    <br>
+    <br>
     <?php getUser($pdo, $_SESSION['user_id']); ?>
     
 </body>

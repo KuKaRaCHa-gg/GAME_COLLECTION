@@ -2,7 +2,12 @@
 require_once 'Models/fonctionDB.php';
 require_once 'Models/User.php';
 $pdo = connexion(); ?>
-
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
 <div class="login-container">
     <form action="index.php?action=login" method="POST">
         <h1>Connexion</h1>
