@@ -7,7 +7,7 @@
 <body>
     <img src="./../Assets/Images/Font.png" alt="fond" id="hero">
     <h1>
-        SALUT {PRENOM} !
+        SALUT <?= htmlspecialchars(getPrenom($pdo, $_SESSION['user_id']) ?? 'Utilisateur'); ?> !
         <br>
         PRÊT À AJOUTER
         <br>
@@ -18,17 +18,7 @@
     </h3>
     <div id = "gamesStorage">
         <?php
-        afficherJeu();
-        afficherJeu();
-        afficherJeu();
-        afficherJeu();
-        afficherJeu();
-        afficherJeu();
-        afficherJeu();
-        afficherJeu();
-        afficherJeu();
-        afficherJeu();
-        afficherJeu();
+        afficherJeu($pdo, $_SESSION['user_id']);
         ?>
     </div>
 </body>

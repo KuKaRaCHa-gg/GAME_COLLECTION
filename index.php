@@ -23,6 +23,8 @@ $dotenv->load();
 session_start(); // Démarrer la session
 require_once 'Models/fonctionDB.php';
 require_once 'Models/User.php';
+require_once 'Models/Game.php';
+require_once 'Models/LibraryModel.php';
 $pdo = connexion();
 
 // Autochargement des classes
@@ -117,15 +119,15 @@ try {
             require_once 'Views/ranking_view.php';
             break;
 
-        case 'library':
+        case 'home':
             require_once 'Views/LibraryView.php';
             break;
 
-        case 'home':
-            /*$gameController = new GameController($pdo);
-            $userGames = $gameController->getUserGames($_SESSION['user_id']);*/
+        /*case 'home':
+            $gameController = new GameController($pdo);
+            $userGames = $gameController->getUserGames($_SESSION['user_id']);
             require_once 'Views/home_view.php';
-            break;
+            break;*/
 
         case 'profile':
             /*$authController = new AuthController($pdo);
