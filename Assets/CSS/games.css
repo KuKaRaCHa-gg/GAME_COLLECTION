@@ -3,18 +3,11 @@ body {
     margin: 0;
 }
 
-.resultatAffiche {
-    position: absolute;
-    text-align: left;
-    z-index: 1;
-
-}
-
 .gamesStorage {
     position: absolute;
     display: flex;
     justify-content: space-evenly;
-    margin-top: 10%;
+   
     width: 83%;
     margin-left: 13.5%;
     flex-wrap: wrap;
@@ -47,7 +40,7 @@ body {
 }
 
 .gameTitle{
-    font-size: 3em;
+    font-size: 2em;
     text-align: left;
     position: absolute;
     margin-top: 30%;
