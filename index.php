@@ -127,11 +127,9 @@ try {
             require_once 'Views/LibraryView.php';
             break;
 
-        /*case 'home':
-            $gameController = new GameController($pdo);
-            $userGames = $gameController->getUserGames($_SESSION['user_id']);
-            require_once 'Views/home_view.php';
-            break;*/
+        case 'add':
+            require_once 'Views/addLibraryView.php';
+            break;
 
         case 'profile':
             /*$authController = new AuthController($pdo);

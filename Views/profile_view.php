@@ -10,8 +10,8 @@ require_once 'Models/User.php';
     <title>Document</title>
 </head>
 <body>
-    <div class="profilContainer">
-    <div class="profil">
+    <div class="contentContainer">
+    <div class="toLeft">
     <h1 class="titreProfil">Mon Profil</h1>
 
     <?php 
@@ -20,7 +20,7 @@ require_once 'Models/User.php';
             $row = getUser($pdo, $_SESSION['user_id']);
             ?>
             <br>
-            <form action="" method="post" class="formProfil">
+            <form action="" method="post" class="formDefaut">
         
             <label for="nom_user" class="labelProfil">Nom :</label><br>
             <input type="text" name="nom_user" value="<?php echo htmlspecialchars($row['nom_user']) ?>"><br>
@@ -57,7 +57,7 @@ require_once 'Models/User.php';
         <p class="profilTexte"> Prénom : <?php echo htmlspecialchars($users['pren_user']); ?></p>
         <p class="profilTexte"> Email : <?php echo htmlspecialchars($users['mail_user']); ?></p>
 
-        <form class="formProfil" action="" method="post">
+        <form class="formDefaut" action="" method="post">
             <input type="submit" name="submit" value="MODIFIER MON PROFILE" class="boutonProfil"> <br>
             <input type="submit" name="submit" value="SUPPRIMER MON COMPTE" class="boutonProfil"> <br>
             <input type="submit" name="submit" value="SE DÉCONNECTER" class="boutonProfil"> <br>

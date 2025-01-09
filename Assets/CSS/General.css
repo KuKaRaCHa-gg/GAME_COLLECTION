@@ -5,3 +5,15 @@ body {
     font-family: "Barlow", sans-serif;
     color: #ffffff;
 }
+
+.toLeft {
+    margin-bottom: 20px;
+    margin-left: 10%;
+    text-align: left;
+}
+
+.contentContainer {
+    width: 100%; 
+    margin: 0 auto;
+    text-align: center;
+}

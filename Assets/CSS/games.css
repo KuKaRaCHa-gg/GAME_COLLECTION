@@ -1,0 +1,11 @@
+.game {
+    position: absolute;
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 30%;
+    width: 83%;
+    margin-left: 13.5%;
+    flex-wrap: wrap;
+    gap: 30px;
+    padding-bottom: 100px;
+}

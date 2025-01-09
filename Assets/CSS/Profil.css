@@ -5,19 +5,7 @@
     margin-bottom: 20px;
 }
 
-.profil {
-    margin-bottom: 20px;
-    margin-left: 10%;
-    text-align: left;
-}
-
-.profilContainer {
-    width: 100%; 
-    margin: 0 auto;
-    text-align: center;
-}
-
-.formProfil {
+.formDefaut {
     max-width: initial;
     margin: initial;
     background-color: initial;
@@ -53,9 +41,9 @@
     margin-bottom: 20;
 }
 
-.formProfil input[type="text"],
-.formProfil input[type="email"],
-.formProfil input[type="password"]{
+.formDefaut input[type="text"],
+.formDefaut input[type="email"],
+.formDefaut input[type="password"]{
     background-color: #2B2F40;
     width: 25%;
     padding: 10px;
