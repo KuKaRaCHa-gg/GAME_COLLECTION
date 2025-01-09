@@ -24,7 +24,10 @@
 <?php endif; ?>
 
 <div class="container">
+    <div class="toLeft">
     <h1 class="page-title">Ajouter un jeu à sa bibliothèque</h1>
+    <?php 
+    /*
     <p class="page-description">Recherchez un jeu existant ou ajoutez-en un nouveau pour enrichir votre collection.</p>
 
     <!-- Formulaire de recherche -->
@@ -35,12 +38,15 @@
         </div>
         <button type="submit" name="search_action" value="search_game" class="btn">Rechercher</button>
     </form>
+    
 
     <hr>
 
+    */?>
+
     <!-- Formulaire d'ajout -->
-    <h2 class="section-title">Ajouter un nouveau jeu</h2>
-    <form action="index.php?action=add_game" method="POST" class="form-add-game">
+    <h3 class="section-title"> Le jeu que vous souhaiter ajouter n'existe pas ! Vous pouvez le créer, celui ci sera automatiquement ajouter a votre bibliothèque</h3>
+    <form action="index.php?action=add_game" method="POST" class="formDefaut">
         <div class="form-group">
             <label for="nom_game">Nom du jeu :</label>
             <input type="text" id="nom_game" name="nom_game" placeholder="Nom du jeu" required>
@@ -90,6 +96,7 @@
 
         <button type="submit" name="add_action" value="add_game" class="btn">Ajouter le jeu</button>
     </form>
+</div>
 </div>
 
 <?php include 'footer.php'; ?>

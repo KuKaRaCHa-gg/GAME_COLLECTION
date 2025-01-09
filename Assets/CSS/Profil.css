@@ -43,7 +43,9 @@
 
 .formDefaut input[type="text"],
 .formDefaut input[type="email"],
-.formDefaut input[type="password"]{
+.formDefaut input[type="password"],
+.formDefaut input[type="date"],
+.formDefaut input[type="url"]{
     background-color: #2B2F40;
     width: 25%;
     padding: 10px;
