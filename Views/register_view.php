@@ -1,5 +1,5 @@
 
-<br>
+
 <div class="register-container">
     <form action="index.php?action=register" method="POST">
         <h1>Inscription</h1>
