@@ -37,8 +37,7 @@ if (isset($_POST['add_game'])) {
     }
 }
 ?>
-</div>
-</div>
+
 <?php 
 if (isset($_POST['search_action']) && $_POST['search_game'] != '') {
     $games = searchGame($pdo, $_POST['search_game']);
@@ -67,8 +66,11 @@ foreach ($games as $game) {
 
 }
 ?>
+
 <div class="plusBasFooter">
 <?php include 'footer.php'; ?>
+</div>
+</div>
 </div>
 </div>
 
