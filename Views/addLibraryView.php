@@ -66,8 +66,10 @@ foreach ($games as $game) {
     <?php
 
 }
-
 ?>
+<div class="plusBasFooter">
+<?php include 'footer.php'; ?>
+</div>
 </div>
 
 </body>

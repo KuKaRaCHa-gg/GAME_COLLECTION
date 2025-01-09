@@ -7,7 +7,6 @@ body {
     position: absolute;
     display: flex;
     justify-content: space-evenly;
-   
     width: 83%;
     margin-left: 13.5%;
     flex-wrap: wrap;
