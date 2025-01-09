@@ -13,7 +13,7 @@
             <img src="Assets/Images/livres.png" alt="livres" id="livres" class="navimages">
         </button>
         <button type="button" id="buttonCollection">
-            <a href="index.php?action=add_game">AJOUTER UN JEU</a>
+            <a href="index.php?action=add">AJOUTER UN JEU</a>
             <img src="Assets/Images/manette.png" alt="manette" id="manette" class="navimages">
         </button>
         <button type="button" id="buttonSearch">

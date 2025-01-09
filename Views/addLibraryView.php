@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="Assets/CSS/games.css">
 </head>
 <body>
 
@@ -19,22 +20,33 @@
     </form>
 
 
-<h2> Resultats de la recherche </h2>
+<h2 class="resultatAffiche"> Resultats de la recherche </h2>
+</div>
+</div>
 <?php 
-$games = getAllGames($pdo);
+if (isset($_POST['search_action'])) {
+    $games = searchGame($pdo, $_POST['search_game']);
+} else {
+    $games = getAllGames($pdo);
+}
+?>
+<div class="gamesStorage">
+<?php
 foreach ($games as $game) {
     ?>
     <div class="game">
-    <h3> <?php echo $game['nom_game'] ?> </h3>
-    <p> <?php echo $game['type_plateforme'] ?></p>
-    <img src= <?php echo htmlspecialchars($game['url_cover_game']) ?> alt="jeu" class="gameImage"/>';
+    <h3 class="gameTitle"> <?php echo $game['nom_game'] ?> </h3>
+    <p class="gamePlatform"> <?php echo $game['type_plateforme'] ?></p>
+    <img src= <?php echo htmlspecialchars($game['url_cover_game']) ?> alt="jeu" class="gameImage"/>
     <form action="" method="POST" class="formDefaut">
     <input type="hidden" name="id_game" value=" <?php echo $game['id_game'] ?> ">
-    <button type="submit" name="add_game" value="add_game">Ajouter</button>
+    <button type="submit" name="add_game" value="add_game" class="boutonAjout">AJOUTER A LA BIBLIOTHÈQUE</button>
     </form>
     </div>
     <?php
+
 }
+
 if (isset($_POST['add_game'])) {
     if (verifyGame($pdo, $_SESSION['user_id'], $_POST['id_game']) == true) {
         echo 'Le jeu est déjà dans votre bibliothèque';
@@ -47,6 +59,6 @@ if (isset($_POST['add_game'])) {
 
 ?>
 </div>
-</div>
+
 </body>
 </html>

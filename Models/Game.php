@@ -24,5 +24,12 @@ function verifyGame($pdo, $id_user, $game) {
     }
 }
 
+function searchGame($pdo, $search) {
+    $query = "SELECT * FROM GAME WHERE nom_game = :search";
+    $stmt = $pdo->prepare($query);
+    $stmt->execute([':search' => $search]);
+    return $stmt->fetchAll();
+}
+
 
 
