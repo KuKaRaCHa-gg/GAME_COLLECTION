@@ -16,9 +16,9 @@
 <br>
 <form action="" method="POST" class="formDefaut">
         <div class="form-group">
-            <input type="text" id="search_game" name="search_game" placeholder="Rechercher un jeu">
+            <input type="text" id="search_game" name="search_game" placeholder="Rechercher un jeu" class="inputRecherche">
         </div>
-        <button type="submit" name="search_action" value="search_game">Rechercher</button>
+        <button type="submit" name="search_action" value="search_game" class="boutonRecherche">Rechercher</button>
     </form>
 
 

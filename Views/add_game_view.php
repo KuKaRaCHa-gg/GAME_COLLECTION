@@ -48,22 +48,22 @@
     <h3 class="section-title"> Le jeu que vous souhaiter ajouter n'existe pas ! Vous pouvez le créer, celui ci sera automatiquement ajouter a votre bibliothèque</h3>
     <form action="index.php?action=add_game" method="POST" class="formDefaut">
         <div class="form-group">
-            <label for="nom_game">Nom du jeu :</label>
+            <label for="nom_game">Nom du jeu</label>
             <input type="text" id="nom_game" name="nom_game" placeholder="Nom du jeu" required>
         </div>
 
         <div class="form-group">
-            <label for="edit_game">Éditeur du jeu :</label>
+            <label for="edit_game">Editeur du jeu</label>
             <input type="text" id="edit_game" name="edit_game" placeholder="Éditeur du jeu" required>
         </div>
 
         <div class="form-group">
-            <label for="release_game">Date de sortie :</label>
+            <label for="release_game">Sortie du jeu</label>
             <input type="date" id="release_game" name="release_game" required>
         </div>
 
         <div class="form-group">
-            <label>Plateformes :</label>
+            <label>Plateformes</label>
             <div class="checkbox-group">
                 <input type="checkbox" id="playstation" name="plateformes[]" value="Playstation">
                 <label for="playstation">Playstation</label>
@@ -80,18 +80,18 @@
         </div>
 
         <div class="form-group">
-            <label for="desc_game">Description :</label>
-            <textarea id="desc_game" name="desc_game" placeholder="Ajoutez une description du jeu (facultatif)" rows="4"></textarea>
+            <label for="desc_game">Description du jeu</label>
+            <textarea id="desc_game" name="desc_game" placeholder="Description du jeu" rows="4"></textarea>
         </div>
 
         <div class="form-group">
-            <label for="url_cover_game">URL de la couverture :</label>
-            <input type="url" id="url_cover_game" name="url_cover_game" placeholder="Lien vers l'image de la couverture" required>
+            <label for="url_cover_game">URL de la cover</label>
+            <input type="url" id="url_cover_game" name="url_cover_game" placeholder="URL de la cover" required>
         </div>
 
         <div class="form-group">
-            <label for="url_site_game">URL du site officiel :</label>
-            <input type="url" id="url_site_game" name="url_site_game" placeholder="Lien vers le site officiel" required>
+            <label for="url_site_game">URL du site</label>
+            <input type="url" id="url_site_game" name="url_site_game" placeholder="URL du site" required>
         </div>
 
         <button type="submit" name="add_action" value="add_game" class="btn">Ajouter le jeu</button>

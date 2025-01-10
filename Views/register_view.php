@@ -23,7 +23,13 @@
     <?php 
     if (isset($_POST['submit'])) {
         if ($_POST['password'] == $_POST['confirm_password']) {
+            if (verifiAdresseMail($pdo, $_POST['email']) == false) {
         createUser($pdo, $_POST['nom'], $_POST['prenom'], $_POST['email'], $_POST['password']);
+        loginUser($pdo, $_POST['email'], $_POST['password']);
+            } else { 
+            ?>
+            <p>Un utilisateur avec cette email existe déjà</p>
+            <?php }
     } else { ?>
             <p>Les mots de passe ne correspondent pas</p>
             <?php }}

@@ -38,8 +38,19 @@ function createUser($pdo, $nom, $prenom, $email, $password)
         $query->bindParam(':email', $email, PDO::PARAM_STR);
         $query->bindParam(':mdp', $mdp, PDO::PARAM_STR);
         $query->execute();
-        header("Location: index.php?action=login");
-        exit();
+    }
+}
+
+function verifiAdresseMail($pdo, $email)
+{
+    $query = $pdo->prepare("SELECT * FROM UTILISATEUR WHERE mail_user = :email");
+    $query->bindParam(':email', $email, PDO::PARAM_STR);
+    $query->execute();
+    $row = $query->fetch(PDO::FETCH_ASSOC);
+    if ($row) {
+        return true;
+    } else {
+        return false;
     }
 }
 

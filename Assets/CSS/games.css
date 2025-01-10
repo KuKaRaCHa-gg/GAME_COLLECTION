@@ -78,3 +78,42 @@ body {
     transition: all 0.7s ease;
     font-size: 20px;
 }
+
+.game:hover .boutonAjout{
+    margin-top: 33%;
+    transition: all 0.7s ease;
+}
+
+.boutonRecherche {
+    margin-left: initial;
+}
+
+.inputRecherche {
+    width: 115%;
+}
+
+
+.form-group {
+    font-family: Arial, sans-serif;
+    color: #fff; /* Changez la couleur si nécessaire */
+}
+
+.checkbox-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Espacement entre les options */
+}
+
+.checkbox-item {
+    display: flex;
+    align-items: center; /* Aligne la checkbox et le texte verticalement */
+}
+
+.checkbox-item input[type="checkbox"] {
+    margin-right: 10px; /* Ajoute un espace entre la case et le texte */
+}
+
+.checkbox-item label {
+    margin: 0; /* Supprime les marges par défaut */
+    font-size: 14px; /* Taille de police personnalisée */
+}

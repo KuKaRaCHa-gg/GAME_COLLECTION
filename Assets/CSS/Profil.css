@@ -5,15 +5,7 @@
     margin-bottom: 20px;
 }
 
-.formDefaut {
-    max-width: initial;
-    margin: initial;
-    background-color: initial;
-    border-radius: initial;
-    box-shadow: initial;
-    padding-top: initial;
-    padding-bottom: initial;
-}
+
 
 .boutonProfil {
     font: 100% "Barlow", sans-serif;
@@ -39,24 +31,6 @@
     font-size: 120%;
     margin-top: 10px;
     margin-bottom: 20;
-}
-
-.formDefaut input[type="text"],
-.formDefaut input[type="email"],
-.formDefaut input[type="password"],
-.formDefaut input[type="date"],
-.formDefaut input[type="url"]{
-    background-color: #2B2F40;
-    width: 25%;
-    padding: 10px;
-    border-color: #2B2F40;
-    border-style: solid;
-    margin-left: initial;
-    margin-bottom: 20px;
-    margin-top: -20px;
-    border-radius: 5px;
-    box-sizing: border-box;
-    color: #ffffff;
 }
 
 .labelProfil {
