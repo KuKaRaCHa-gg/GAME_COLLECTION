@@ -1,6 +1,17 @@
 a:visited {
     decoration: none;
+    text-underline: none;
     color : white;
+}
+a {
+    decoration: none;
+    text-underline: none;
+    color: white;
+}
+a:hover {
+    decoration: none;
+    text-underline: none;
+    color: white;
 }
 
 #navabarFrame {
@@ -43,7 +54,12 @@ a:visited {
     rotate: 0deg;
 }
 
-#buttonStorage button:hover {
+#buttonStorage a{
+    color: white;
+    text-decoration: none;
+}
+
+#buttonStorage a:hover{
     color: var(--couleur);
     transition: 0.3s;
     font-size: 3vh;
