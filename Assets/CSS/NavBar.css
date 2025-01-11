@@ -1,13 +1,16 @@
 a:visited {
     decoration: none;
+    text-underline: none;
     color : white;
 }
 a {
     decoration: none;
+    text-underline: none;
     color: white;
 }
 a:hover {
     decoration: none;
+    text-underline: none;
     color: white;
 }
 
@@ -51,7 +54,7 @@ a:hover {
     rotate: 0deg;
 }
 
-#buttonStorage a:hover{
+#buttonStorage button a:hover{
     color: var(--couleur);
     transition: 0.3s;
     font-size: 3vh;
