@@ -18,12 +18,20 @@ function getTopRanking($pdo)
 }
 
 
-
 function getUserGame($pdo, $id)
 {
     $query = $pdo->prepare("SELECT * FROM GAME INNER JOIN LIBRARY ON GAME.id_game = LIBRARY.id_game WHERE LIBRARY.id_user = :id");
     $query->bindParam(':id', $id, PDO::PARAM_INT);
     $query->execute();
     $result = $query->fetchAll(PDO::FETCH_ASSOC);
+    return $result;
+}
+
+function getSpecificGame($pdo, $id)
+{
+    $query = $pdo->prepare("SELECT * FROM GAME INNER JOIN LIBRARY ON GAME.id_game = LIBRARY.id_game WHERE LIBRARY.id_library = :id");
+    $query->bindParam(':id', $id, PDO::PARAM_INT);
+    $query->execute();
+    $result = $query->fetch(PDO::FETCH_ASSOC);
     return $result;
 }

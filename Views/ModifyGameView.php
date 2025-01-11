@@ -5,9 +5,9 @@
 </head>
 <body>
     <div id="boutons">
-        <h3>Nom</h3>
-        <p>Description</p>
-        <p>Temps passé : 100H</p>
+        <h3>Nom <?php echo htmlspecialchars($game['nom_game'])?></h3>
+        <p>Description <?php echo htmlspecialchars($game['desc_game'])?></p>
+        <p>Temps passé : <?php echo htmlspecialchars($game['time_game'])?></p>
         <h3>Ajouter du temps passé sur le jeu</h3>
         <form action="index.php?action=modifyGame" method="post">
             <input type="number" name="time" placeholder="Temps passé">
@@ -18,7 +18,7 @@
         </button>
     </div>
     <div id="thumbnail">
-        <img src="Assets/Images/Logo.png" alt="Logo" style="width: 100px; height: 100px;">
+        <img src= <?php echo htmlspecialchars($game['url_cover_game']) ?> alt="Logo" style="width: 100px; height: 100px;">
     </div>
 </body>
 </html>

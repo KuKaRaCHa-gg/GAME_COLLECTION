@@ -109,6 +109,9 @@ try {
             break;
 
         case 'modifyGame':
+            $game = isset($_GET['type']) ? htmlspecialchars($_GET['type']) : '';
+            $ModifyGameController = new ModifyGameController($pdo);
+            $ModifyGameController->showGame($game);
             require_once 'Views/modifyGameView.php';
             break;
 
