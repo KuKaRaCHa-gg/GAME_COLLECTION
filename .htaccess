@@ -1,18 +1,14 @@
 # Activer le moteur de réécriture
 RewriteEngine on
 
-# Bloquer l'accès direct aux fichiers sensibles (ex. fichiers PHP spécifiques)
-RewriteRule ^(Controllers|Models|config|vendor|\.env|\.git) - [F,L]
+# Interdire l'accès direct aux fichiers PHP, sauf index.php
+RewriteCond %{REQUEST_URI} !^/index\.php$
+RewriteCond %{REQUEST_URI} \.php$
+RewriteRule ^.*$ - [F,L]
 
 # Si la requête est pour un fichier ou un répertoire existant, ne pas réécrire
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 
 # Rediriger toutes les requêtes vers index.php
-RewriteRule ^(.*)$ index.php?action=$1 [QSA,L]
-
-# Sécuriser le fichier .htaccess lui-même
-<Files .htaccess>
-    Order allow,deny
-    Deny from all
-</Files>
+RewriteRule ^.*$ index.php [QSA,L]
