@@ -2,6 +2,14 @@ a:visited {
     decoration: none;
     color : white;
 }
+a {
+    decoration: none;
+    color: white;
+}
+a:hover {
+    decoration: none;
+    color: white;
+}
 
 #navabarFrame {
     display: flex;
@@ -31,7 +39,7 @@ a:visited {
     right: 0;
 }
 
-#buttonStorage button {
+#buttonStorage button a{
     background-color: transparent;
     font: 2.4vh "Barlow", sans-serif;
     color: white;
@@ -43,7 +51,7 @@ a:visited {
     rotate: 0deg;
 }
 
-#buttonStorage button:hover {
+#buttonStorage button:hover a{
     color: var(--couleur);
     transition: 0.3s;
     font-size: 3vh;
