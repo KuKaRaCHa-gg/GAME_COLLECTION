@@ -105,6 +105,13 @@ try {
             break;
 
         case 'add':
+            $addLibraryController = new AddLibraryController($pdo);
+            $games = $addLibraryController->searchGame($_POST);
+            $message = '';
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                $message = $addLibraryController->addGame($_POST);
+            }
+            $addLibraryController->showAddLibrary($games);
             require_once 'Views/addLibraryView.php';
             break;
 

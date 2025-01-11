@@ -23,31 +23,7 @@
 
 
 <h2 class="resultatAffiche"> Resultats de la recherche </h2>
-<?php 
-if (isset($_POST['add_game'])) {
-    if (verifyGame($pdo, $_SESSION['user_id'], $_POST['id_game']) == true) {
-        ?>
-        <p class="messageAjout">Le jeu <?php echo htmlspecialchars($_POST['nom_game']) ?> est déjà dans votre bibliothèque </p>
-        <?php 
-    } else {
-        addGameToLibrary($pdo, $_SESSION['user_id'], $_POST['id_game']);
-        ?>
-        <p class="messageAjout">Le jeu <?php echo htmlspecialchars($_POST['nom_game']) ?> a bien été ajouté à votre bibliothèque </p>
-        <?php 
-    }
-}
-?>
 
-<?php 
-if (isset($_POST['search_action']) && $_POST['search_game'] != '') {
-    $games = searchGame($pdo, $_POST['search_game']);
-    if (empty($games)) {
-        header("Location: index.php?action=add_game");
-    }
-} else {
-    $games = getAllGames($pdo);
-}
-?>
 <div class="gamesStorage">
 <?php
 foreach ($games as $game) {
