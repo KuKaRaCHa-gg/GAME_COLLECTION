@@ -95,6 +95,8 @@ try {
             
 
         case 'ranking':
+            $ranlingController = new RankingController($pdo);
+            $ranlingController->showRanking();
             require_once 'Views/ranking_view.php';
             break;
 

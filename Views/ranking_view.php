@@ -1,7 +1,3 @@
-<?php
-require_once 'Models/UserGame.php';
-require_once 'Models/fonctionDB.php';
-$pdo = connexion(); ?>
 <div class="table-container">
 </br>
     </br>
