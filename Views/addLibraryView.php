@@ -23,6 +23,7 @@
 
 
 <h2 class="resultatAffiche"> Resultats de la recherche </h2>
+<p><?php echo htmlspecialchars($message); ?></p>
 
 <div class="gamesStorage">
 <?php

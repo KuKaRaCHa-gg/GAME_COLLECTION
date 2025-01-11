@@ -97,7 +97,6 @@ try {
         case 'ranking':
             $ranlingController = new RankingController($pdo);
             $ranlingController->showRanking();
-            require_once 'Views/ranking_view.php';
             break;
 
         case 'home':
@@ -111,15 +110,13 @@ try {
             if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $message = $addLibraryController->addGame($_POST);
             }
-            $addLibraryController->showAddLibrary($games);
-            require_once 'Views/addLibraryView.php';
+            $addLibraryController->showAddLibrary($games, $message);
             break;
 
         case 'modifyGame':
             $game = isset($_GET['type']) ? htmlspecialchars($_GET['type']) : '';
             $ModifyGameController = new ModifyGameController($pdo);
             $ModifyGameController->showGame($game);
-            require_once 'Views/modifyGameView.php';
             break;
 
         case 'profile':

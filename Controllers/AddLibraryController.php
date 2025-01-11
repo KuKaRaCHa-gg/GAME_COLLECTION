@@ -10,10 +10,12 @@ class AddLibraryController {
     public function addGame($data) {
         if (isset($data['add_game'])) {
             if (verifyGame($this->pdo, $_SESSION['user_id'], $data['id_game']) == true) {
-                return 'Le jeu ' . htmlspecialchars($data['nom_game']) . ' est déjà dans votre bibliothèque';
+                $message = 'Le jeu ' . htmlspecialchars($data['nom_game']) . ' est déjà dans votre bibliothèque';
+                return $message;
             } else {
                 addGameToLibrary($this->pdo, $_SESSION['user_id'], $data['id_game']);
-                return 'Le jeu ' . htmlspecialchars($data['nom_game']) . ' a bien été ajouté à votre bibliothèque';
+                $message = 'Le jeu ' . htmlspecialchars($data['nom_game']) . ' a bien été ajouté à votre bibliothèque';
+                return $message;
             }
         }
     }
@@ -30,8 +32,7 @@ class AddLibraryController {
         return $games;
     }
 
-    public function showAddLibrary() {
-        $games = getAllGames($this->pdo);
+    public function showAddLibrary($games, $message) {
         $pdo = $this->pdo;
         require_once 'Views/addLibraryView.php';
     }
