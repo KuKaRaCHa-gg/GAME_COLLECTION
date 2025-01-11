@@ -90,7 +90,7 @@ a:hover {
     transform: translateX(-50%);
 }
 
-#buttonStorage a:hover .navimages {
+#buttonStorage button:hover .navimages {
     top: -30px;
     transition: top 0.3s;
 }
