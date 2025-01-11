@@ -27,7 +27,7 @@
     </div>
 </div>
 <div id="navbarCollision">
-    <a> a</a>
+    <a> </a>
 </div>
 </body>
 </html>

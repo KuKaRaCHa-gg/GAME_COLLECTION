@@ -93,6 +93,7 @@ function deleteUser($pdo, $id)
     $query = $pdo->prepare("DELETE FROM UTILISATEUR WHERE id_user = :id");
     $query->bindParam(':id', $id, PDO::PARAM_INT);
     $query->execute();
+    session_destroy();
     header("Location: index.php?action=login");
     exit();
 }
