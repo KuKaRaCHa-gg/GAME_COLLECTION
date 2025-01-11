@@ -23,8 +23,8 @@ function afficherJeu($pdo, $id)
         echo '<p class="gamePlatform">';
         echo htmlspecialchars($game['type_plateforme']);//Plateforme du jeu
         echo ' </p>';
-        echo '<a class="details">'; //Il faut ajouter un lien à la page du jeu en particulier
-        echo '<a href="Controllers/ModifyGameController.php"> VOIR LE JEU</a>'; //Texte affiché lors du surlignage qui servira à accéder aux détails du jeu
+        echo '<a class="details" href="Controllers/ModifyGameController.php">'; //Il faut ajouter un lien à la page du jeu en particulier
+        echo 'VOIR LE JEU'; //Texte affiché lors du surlignage qui servira à accéder aux détails du jeu
         echo '</a>';
         echo '</div>';
     }
