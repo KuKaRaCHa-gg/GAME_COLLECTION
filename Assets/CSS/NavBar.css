@@ -49,6 +49,7 @@ a:hover {
     cursor: pointer;
     transition: 0.3s;
     rotate: 0deg;
+    text-decoration: none;
 }
 
 #buttonStorage button:hover a{
