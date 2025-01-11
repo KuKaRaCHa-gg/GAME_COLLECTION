@@ -2,9 +2,9 @@
 RewriteEngine on
 
 # Interdire l'accès direct aux fichiers PHP, sauf index.php
-#RewriteCond %{REQUEST_URI} !^/index\.php$
-#RewriteCond %{REQUEST_URI} \.php$
-#RewriteRule ^.*$ - [F,L]
+RewriteCond %{REQUEST_URI} !^/index\.php$
+RewriteCond %{REQUEST_URI} \.php$
+RewriteRule ^.*$ - [F,L]
 
 # Si la requête est pour un fichier ou un répertoire existant, ne pas réécrire
 RewriteCond %{REQUEST_FILENAME} !-f

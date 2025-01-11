@@ -1,32 +1,13 @@
 <?php
 // Inclure les dépendances nécessaires
-require_once "./NavBar.php"; // Composant de navigation
-require_once "./../Models/LibraryModel.php"; // Modèle pour les données de la bibliothèque
-require_once "./../Views/LibraryView.php"; // Vue pour afficher la bibliothèque
+
+require_once "Models/LibraryModel.php"; // Modèle pour les données de la bibliothèque
 
 class LibraryController {
-    private $libraryModel;
+    private $pdo;
 
-    public function __construct() {
-        // Initialiser le modèle de bibliothèque
-        $this->libraryModel = new LibraryModel();
-    }
-
-    // Afficher la bibliothèque de jeux de l'utilisateur
-    public function index() {
-        session_start();
-
-        // Vérifier si l'utilisateur est connecté
-        if (!isset($_SESSION['user_id'])) {
-            header("Location: login_view.php");
-            exit();
-        }
-
-        // Récupérer les jeux de l'utilisateur
-        $games = $this->libraryModel->getGamesByUser($_SESSION['user_id']);
-
-        // Charger la vue de la bibliothèque
-        require_once "./../Views/LibraryView.php";
+    public function __construct($pdo) {
+        $this->pdo = $pdo;
     }
 
     // Ajouter un jeu à la bibliothèque
@@ -62,21 +43,8 @@ class LibraryController {
         require_once "./../Views/add_game_view.php";
     }
 
-    // Supprimer un jeu de la bibliothèque
-    public function deleteGame($gameId) {
-        session_start();
-
-        // Vérifier si l'utilisateur est connecté
-        if (!isset($_SESSION['user_id'])) {
-            header("Location: login_view.php");
-            exit();
-        }
-
-        // Supprimer le jeu via le modèle
-        $this->libraryModel->deleteGame($gameId);
-
-        // Rediriger vers la bibliothèque
-        header("Location: library.php");
-        exit();
+    public function showLibrary() {
+        $pdo = $this->pdo;
+        require_once 'Views/LibraryView.php';
     }
 }

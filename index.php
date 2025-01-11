@@ -100,6 +100,8 @@ try {
             break;
 
         case 'home':
+            $libraryController = new LibraryController($pdo);
+            $libraryController->showLibrary();
             require_once 'Views/LibraryView.php';
             break;
 
