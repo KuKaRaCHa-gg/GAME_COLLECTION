@@ -54,7 +54,12 @@ a:hover {
     rotate: 0deg;
 }
 
-#buttonStorage button a:hover{
+#buttonStorage a{
+    color: white;
+    text-decoration: none;
+}
+
+#buttonStorage a:hover{
     color: var(--couleur);
     transition: 0.3s;
     font-size: 3vh;
