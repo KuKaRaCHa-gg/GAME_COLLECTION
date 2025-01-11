@@ -106,6 +106,10 @@ try {
             require_once 'Views/addLibraryView.php';
             break;
 
+        case 'modifyGame':
+            require_once 'Views/modifyGameView.php';
+            break;
+
         case 'profile':
             $authController->showProfile();
             break;

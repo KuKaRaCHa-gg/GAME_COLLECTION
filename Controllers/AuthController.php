@@ -7,7 +7,6 @@ class AuthController {
         $this->pdo = $pdo;
     }
 
-    // Handle user login
     public function login($data) {
         if (!empty($data['email']) && !empty($data['password'])) {
             require_once 'Models/User.php';
@@ -17,7 +16,6 @@ class AuthController {
         }
     }
 
-    // Handle user registration
     public function register($data) {
         if (!empty($data['password']) && $data['password'] === $data['confirm_password']) {
             require_once 'Models/User.php';
@@ -29,7 +27,7 @@ class AuthController {
                     htmlspecialchars($data['email']),
                     htmlspecialchars($data['password'])
                 );
-                // Automatically log in the user after registration
+                
                 loginUser($this->pdo, $data['email'], $data['password']);
             } else {
                 echo '<p>Un utilisateur avec cet email existe déjà</p>';
@@ -39,28 +37,23 @@ class AuthController {
         }
     }
 
-    // Handle user logout
     public function logout() {
         require_once 'Models/User.php';
         logout();
     }
 
-    // Show user profile
     public function showProfile() {
         require_once 'Models/User.php';
         $user = getUser($this->pdo, $_SESSION['user_id']);
-        $pdo = $this->pdo; // Passe $pdo à la vue
+        $pdo = $this->pdo;
         require_once 'Views/profile_view.php';
     }
     
-
-    // Update user profile
     public function updateProfile($id, $data) {
         require_once 'Models/User.php';
         gestionMDP($this->pdo,$id,$data['password'],$data['password_confirm'],$data['nom_user'],$data['pren_user'],$data['mail_user']);
     }
 
-    // Delete user profile
     public function deleteProfile($id) {
         require_once 'Models/User.php';
         deleteUser($this->pdo, $id);
