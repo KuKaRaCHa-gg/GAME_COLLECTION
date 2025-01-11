@@ -39,7 +39,7 @@ a:hover {
     right: 0;
 }
 
-#buttonStorage button a{
+#buttonStorage button {
     background-color: transparent;
     font: 2.4vh "Barlow", sans-serif;
     color: white;
@@ -51,7 +51,7 @@ a:hover {
     rotate: 0deg;
 }
 
-#buttonStorage button:hover a{
+#buttonStorage a:hover{
     color: var(--couleur);
     transition: 0.3s;
     font-size: 3vh;
