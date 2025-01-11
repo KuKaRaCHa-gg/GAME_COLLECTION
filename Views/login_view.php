@@ -15,12 +15,4 @@ $pdo = connexion(); ?>
         <a href="index.php?action=register">Pas encore inscrit ? Créez un compte</a>
     </form>
 </div>
-<?php 
-
-if (isset($_POST['email']) && isset($_POST['password'])) {
-    $email = htmlspecialchars($_POST['email']);
-    $password = htmlspecialchars($_POST['password']);
-    loginUser($pdo,$email, $password);
-}
-
-include 'footer.php'; ?>
+<?php include 'footer.php'; ?>
