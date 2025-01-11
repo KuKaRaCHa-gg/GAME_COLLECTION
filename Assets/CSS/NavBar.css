@@ -1,13 +1,16 @@
 a:visited {
     decoration: none;
+    text-underline: none;
     color : white;
 }
 a {
     decoration: none;
+    text-underline: none;
     color: white;
 }
 a:hover {
     decoration: none;
+    text-underline: none;
     color: white;
 }
 
@@ -39,7 +42,7 @@ a:hover {
     right: 0;
 }
 
-#buttonStorage button a{
+#buttonStorage button {
     background-color: transparent;
     font: 2.4vh "Barlow", sans-serif;
     color: white;
@@ -49,10 +52,14 @@ a:hover {
     cursor: pointer;
     transition: 0.3s;
     rotate: 0deg;
+}
+
+#buttonStorage a{
+    color: white;
     text-decoration: none;
 }
 
-#buttonStorage button:hover a{
+#buttonStorage a:hover{
     color: var(--couleur);
     transition: 0.3s;
     font-size: 3vh;
