@@ -35,3 +35,4 @@ function getSpecificGame($pdo, $id)
     $result = $query->fetch(PDO::FETCH_ASSOC);
     return $result;
 }
+
