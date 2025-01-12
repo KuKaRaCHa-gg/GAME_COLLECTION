@@ -1,14 +1,14 @@
 # Activer le moteur de réécriture
 RewriteEngine on
 
+# Interdire l'accès direct aux fichiers PHP, sauf index.php
+RewriteCond %{REQUEST_URI} !^/index\.php$
+RewriteCond %{REQUEST_URI} \.php$
+RewriteRule ^.*$ - [F,L]
+
 # Si la requête est pour un fichier ou un répertoire existant, ne pas réécrire
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 
-# Réécrire les URLs propres vers index.php
-RewriteRule ^([a-zA-Z0-9_-]+)$ index.php?action=$1 [QSA,L]
-
-# Bloquer l'accès direct aux fichiers PHP (sauf index.php)
-RewriteCond %{REQUEST_URI} !^/index\.php$
-RewriteCond %{REQUEST_URI} \.php$
-RewriteRule ^.*$ - [F,L]
+# Rediriger toutes les requêtes vers index.php
+RewriteRule ^.*$ index.php [QSA,L]
