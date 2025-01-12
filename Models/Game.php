@@ -31,5 +31,11 @@ function searchGame($pdo, $search) {
     return $stmt->fetchAll();
 }
 
+function addGame($pdo, $nom_game, $edit_game, $release_game, $type_plateforme, $desc_game, $url_cover_game, $url_site_game) {
+    $query = "INSERT INTO GAME (nom_game, edit_game, release_game, type_plateforme, desc_game, url_cover_game, url_site_game) VALUES (:nom_game, :edit_game, :release_game, :type_plateforme, :desc_game, :url_cover_game, :url_site_game)";
+    $stmt = $pdo->prepare($query);
+    $stmt->execute([':nom_game' => $nom_game, ':edit_game' => $edit_game, ':release_game' => $release_game, ':type_plateforme' => $type_plateforme, ':desc_game' => $desc_game, ':url_cover_game' => $url_cover_game, ':url_site_game' => $url_site_game]);
+}
+
 
 

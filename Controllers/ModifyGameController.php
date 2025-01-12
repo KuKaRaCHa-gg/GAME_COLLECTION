@@ -17,4 +17,16 @@ class ModifyGameController {
     public function addTime($id, $time) {
         addTime($this->pdo, $id, $time);
     }
+
+    public function verifiUser($game, $id) {
+        $game = getSpecificGame($this->pdo, $game);
+        if ($game['id_user'] != $id) {
+            header('Location: home');
+        }
+    }
+
+    public function deleteGame($game) {
+        deleteGame($this->pdo, $game);
+        header('Location: home');
+    }
 }

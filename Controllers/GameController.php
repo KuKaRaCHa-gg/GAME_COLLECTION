@@ -21,7 +21,7 @@ class GameController {
     }
 
     // Méthode pour ajouter un jeu
-    public function addGame($data) {
+    public function addGame($data, $id_user) {
         $nomGame = htmlspecialchars($data['nom_game']);
         $editGame = htmlspecialchars($data['edit_game']);
         $releaseGame = htmlspecialchars($data['release_game']);
@@ -34,23 +34,11 @@ class GameController {
         if ($this->checkIfGameExists($nomGame)) {
             return "Erreur : Le jeu \"$nomGame\" existe déjà dans la base de données.";
         }
+        addGame($this->pdo, $nomGame, $editGame, $releaseGame, $plateformes, $descGame, $urlCover, $urlSite);
+        
+        addGameToLibrary($this->pdo, $id_user, $this->pdo->lastInsertId());
     
-        // Ajouter le jeu
-        $stmt = $this->pdo->prepare("
-            INSERT INTO GAME (nom_game, edit_game, release_game, type_plateforme, desc_game, url_cover_game, url_site_game)
-            VALUES (:nom_game, :edit_game, :release_game, :type_plateforme, :desc_game, :url_cover_game, :url_site_game)
-        ");
-        $stmt->execute([
-            ':nom_game' => $nomGame,
-            ':edit_game' => $editGame,
-            ':release_game' => $releaseGame,
-            ':type_plateforme' => $plateformes,
-            ':desc_game' => $descGame,
-            ':url_cover_game' => $urlCover,
-            ':url_site_game' => $urlSite
-        ]);
-    
-        return "Le jeu \"$nomGame\" a été ajouté avec succès !";
+        header("Location: home");
     }
     
     

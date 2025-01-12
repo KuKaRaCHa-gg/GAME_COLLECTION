@@ -30,7 +30,7 @@
 
     <!-- Formulaire d'ajout -->
     <h3 class="section-title"> Le jeu que vous souhaiter ajouter n'existe pas ! Vous pouvez le créer, celui ci sera automatiquement ajouter a votre bibliothèque</h3>
-    <form action="dd_game" method="POST" class="formDefaut">
+    <form action="add_game" method="POST" class="formDefaut">
         <div class="form-group">
             <label for="nom_game">Nom du jeu</label>
             <input type="text" id="nom_game" name="nom_game" placeholder="Nom du jeu" required>

@@ -44,3 +44,10 @@ function addTime($pdo, $id, $time)
     $query->execute();
 }
 
+function deleteGame($pdo, $id)
+{
+    $query = $pdo->prepare("DELETE FROM LIBRARY WHERE id_library = :id");
+    $query->bindParam(':id', $id, PDO::PARAM_INT);
+    $query->execute();
+}
+

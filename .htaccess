@@ -6,18 +6,21 @@ RewriteCond %{REQUEST_URI} !^/index\.php$
 RewriteCond %{REQUEST_URI} \.php$
 RewriteRule ^.*$ - [F,L]
 
+# Activer le moteur de réécriture
+RewriteEngine On
+
 # Exclure les fichiers statiques (CSS, JS, images, polices, etc.)
 RewriteCond %{REQUEST_URI} !\.(css|js|jpg|jpeg|png|gif|ico|svg|woff|woff2|ttf|eot|otf|webp)$ [NC]
 
-# Exclure les fichiers et dossiers spécifiques (ex. : Assets)
+# Exclure le dossier Assets
 RewriteCond %{REQUEST_URI} !^/Assets/ [NC]
 
 # Si la requête est pour un fichier ou un répertoire existant, ne pas réécrire
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 
-# Rediriger les URLs courtes vers index.php avec un paramètre action
-RewriteRule ^([a-zA-Z0-9_-]+)$ index.php?action=$1 [QSA,L]
+# Rediriger les URLs courtes avec paramètres vers index.php
+RewriteRule ^([a-zA-Z0-9_-]+)(?:&(.*))?$ index.php?action=$1&$2 [QSA,L]
 
 # Rediriger la racine vers index.php
 RewriteRule ^$ index.php [QSA,L]

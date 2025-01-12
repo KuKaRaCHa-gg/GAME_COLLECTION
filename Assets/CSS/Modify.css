@@ -22,21 +22,8 @@
 
 }
 
-#boutons button {
-    height: 35px;
-    background-color: #6757D6;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-#boutons button:hover {
-    background-color: #463897;
-}
-
 #boutons input[type="submit"] {
-    width: 100px;
+    width: initial;
     height: 35px;
     background-color: #6757D6;
     color: white;
@@ -52,6 +39,7 @@
 #boutons input[type="number"] {
     margin-left: initial;
     border-radius: 5px;
+    width: 150%;
 }
 
 #boutons p {

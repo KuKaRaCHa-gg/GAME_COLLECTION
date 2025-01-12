@@ -86,7 +86,7 @@ try {
                 $message = '';
                 $messageType = 'info';
                 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                    $message = $gameController->addGame($_POST);
+                    $message = $gameController->addGame($_POST, $_SESSION['user_id']);
                     $messageType = str_contains($message, 'succès') ? 'success' : 'error';
                 }
                 require_once 'Views/add_game_view.php';
@@ -118,8 +118,13 @@ try {
         case 'modifyGame':
             $game = isset($_GET['type']) ? htmlspecialchars($_GET['type']) : '';
             $ModifyGameController = new ModifyGameController($pdo);
+            $ModifyGameController->verifiUser($game, $_SESSION['user_id']);
             if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                if (isset($_POST['delete'])) {
+                    $ModifyGameController->deleteGame($game);
+                } elseif (isset($_POST['time'])) {
                 $ModifyGameController->addTime($game, $_POST['time']);
+                }
                 $_Get['type'] = $game;
             }
             $ModifyGameController->showGame($game);

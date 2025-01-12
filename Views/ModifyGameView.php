@@ -13,12 +13,13 @@
         <h2>Ajouter du temps passé sur le jeu</h2>
         <form action="modifyGame&type=<?php echo htmlspecialchars($game['id_library']) ?>" method="post" class="formDefaut">
             <label>Temps passé sur le jeu</label>
-            <input type="number" name="time" placeholder="Temps passé" value="<?php echo htmlspecialchars($game['time_game']) ?>" >
-            <input type="submit" value="AJOUTER">
+            <input type="number" name="time" placeholder="Temps passé" value="<?php echo htmlspecialchars($game['time_game']) ?>">
+            <br>
+            <input type="submit" value="AJOUTER" name="addTime">
         </form>
-        <button>
-            SUPPRIMER LE JEU DE MA BIBLIOTHÈQUE
-        </button>
+        <form action="modifyGame&type=<?php echo htmlspecialchars($game['id_library']) ?>" method="post" class="formDefaut">
+            <input type="submit" value="SUPPRIMER LE JEU DE MA BIBLIOTHÈQUE" name="delete" class="supprimer">
+        </form>
     </div>
         <img src= <?php echo htmlspecialchars($game['url_cover_game']) ?> alt="Logo" id="thumbnail">
     </div>
