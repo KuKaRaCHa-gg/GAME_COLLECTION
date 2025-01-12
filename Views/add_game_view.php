@@ -1,11 +1,14 @@
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ajouter un jeu à sa bibliothèque</title>
     <link rel="stylesheet" type="text/css" href="Assets/CSS/General.css">
     <!--<link rel="stylesheet" type="text/css" href="Assets/CSS/NavBar.css">-->
     <link rel="stylesheet" type="text/css" href="Assets/CSS/FormulaireConnexion.css">
 </head>
-
+<body>
 <!-- Affichage des messages -->
 <?php if (!empty($message)) : ?>
 <div class="message-container <?php echo $messageType ?? 'info'; ?>">
@@ -82,5 +85,7 @@
     </form>
 </div>
 </div>
+</body>
+</html>
 
 <?php include 'footer.php'; ?>
