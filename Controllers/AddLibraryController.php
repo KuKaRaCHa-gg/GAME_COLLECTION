@@ -1,4 +1,5 @@
 <?php 
+require_once 'Models/Game.php';
 
 class AddLibraryController {
     private $pdo;

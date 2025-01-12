@@ -1,7 +1,3 @@
-<?php
-require_once 'Models/fonctionDB.php';
-require_once 'Models/User.php';
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

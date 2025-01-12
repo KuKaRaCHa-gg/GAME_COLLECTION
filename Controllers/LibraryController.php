@@ -2,6 +2,7 @@
 // Inclure les dépendances nécessaires
 
 require_once "Models/LibraryModel.php"; // Modèle pour les données de la bibliothèque
+require_once "Models/User.php"; // Modèle pour les données de l'utilisateur
 
 class LibraryController {
     private $pdo;

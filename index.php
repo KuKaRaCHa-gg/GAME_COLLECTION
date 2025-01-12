@@ -26,9 +26,6 @@ $dotenv->load();
 
 session_start(); // Démarrer la session
 require_once 'Models/fonctionDB.php';
-require_once 'Models/User.php';
-require_once 'Models/Game.php';
-require_once 'Models/LibraryModel.php';
 $pdo = connexion();
 
 // Autochargement des classes

@@ -1,5 +1,7 @@
 <?php
 
+require_once 'Models/Game.php';
+
 class GameController {
     private $pdo;
 
