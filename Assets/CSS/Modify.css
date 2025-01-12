@@ -1,8 +1,8 @@
 #thumbnail {
-    width : 264px;
-    height : 355px;
+    width : 20%;
+    height : 50%;
     position : absolute;
-    left : 58%;
+    left : 70%;
     top : 130px;
 
 }
@@ -52,5 +52,5 @@
 }
 
 #boutons p {
-    margin: initial;
+    margin: initial
 }

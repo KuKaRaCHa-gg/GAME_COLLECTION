@@ -118,6 +118,10 @@ try {
         case 'modifyGame':
             $game = isset($_GET['type']) ? htmlspecialchars($_GET['type']) : '';
             $ModifyGameController = new ModifyGameController($pdo);
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                $ModifyGameController->addTime($game, $_POST['time']);
+                $_Get['type'] = $game;
+            }
             $ModifyGameController->showGame($game);
             break;
 
