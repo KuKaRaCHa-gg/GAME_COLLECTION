@@ -6,10 +6,10 @@ body {
 .gamesStorage {
     position: absolute;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: flex-start;
     width: 83%;
     flex-wrap: wrap;
-    gap: 30px;
+    gap: 20px;
     padding-bottom: 100px;
 }
 
@@ -60,7 +60,7 @@ body {
     font-size: 1.5em;
     text-align: left;
     position: absolute;
-    margin-top: 50%;
+    margin-top: 45%;
     margin-left: 7%;
     transition: all 0.7s ease;
 }
@@ -73,7 +73,7 @@ body {
 .boutonAjout{
     text-align: center;
     position: absolute;
-    margin-top: 70%;
+    margin-top: 65%;
     margin-left: 5%;
     transition: all 0.7s ease;
     font-size: 20px;

@@ -4,7 +4,12 @@ RewriteEngine On
 # Interdire l'accès direct aux fichiers PHP (sauf index.php)
 RewriteCond %{REQUEST_URI} !^/index\.php$
 RewriteCond %{REQUEST_URI} \.php$
+
+# A décommenter pour un serveur LAMP, a commenter pour un serveur WAMP/XAMPP
 RewriteRule ^.*$ - [F,L]
+
+# A décommenter pour un serveur WAMP/XAMPP, a commenter pour un serveur LAMP
+#RewriteRule ^.*$ - [L]
 
 # Activer le moteur de réécriture
 RewriteEngine On
