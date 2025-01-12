@@ -44,7 +44,7 @@ class AuthController {
 
     public function showProfile() {
         require_once 'Models/User.php';
-        $user = getUser($this->pdo, $_SESSION['user_id']);
+        $users = getUser($this->pdo, $_SESSION['user_id']);
         $pdo = $this->pdo;
         require_once 'Views/profile_view.php';
     }

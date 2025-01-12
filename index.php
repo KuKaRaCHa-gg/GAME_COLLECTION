@@ -131,6 +131,16 @@ try {
             break;
 
         case 'profile':
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                if ($_POST['submit'] == 'MODIFIER') {
+                    $authController->updateProfile($_SESSION['user_id'], $_POST);
+                } elseif ($_POST['submit'] == 'SUPPRIMER MON COMPTE') {
+                    $authController->deleteProfile($_SESSION['user_id']);
+                    exit();
+                } elseif ($_POST['submit'] == 'SE DÉCONNECTER') {
+                    $authController->logout();
+                }
+            }
             $authController->showProfile();
             break;
 

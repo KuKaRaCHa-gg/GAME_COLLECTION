@@ -17,19 +17,18 @@ require_once 'Models/User.php';
     <?php 
     if (isset($_POST['submit'])) {
         if ($_POST['submit'] == 'MODIFIER MON PROFILE') {
-            $row = getUser($pdo, $_SESSION['user_id']);
             ?>
             <br>
             <form action="" method="post" class="formDefaut">
         
             <label for="nom_user" class="labelProfil">Nom :</label><br>
-            <input type="text" name="nom_user" value="<?php echo htmlspecialchars($row['nom_user']) ?>"><br>
+            <input type="text" name="nom_user" value="<?php echo htmlspecialchars($users['nom_user']) ?>"><br>
         
             <label for="pren_user" class="labelProfil">Prénom :</label><br>
-            <input type="text" name="pren_user" value=<?php echo htmlspecialchars($row['pren_user']) ?>><br>
+            <input type="text" name="pren_user" value=<?php echo htmlspecialchars($users['pren_user']) ?>><br>
         
             <label for="mail_user" class="labelProfil">Email :</label><br>
-            <input type="email" id=email name="mail_user" value=<?php echo htmlspecialchars($row['mail_user']) ?>><br>
+            <input type="email" id=email name="mail_user" value=<?php echo htmlspecialchars($users['mail_user']) ?>><br>
         
             <label for="mdp_user" class="labelProfil">Mot de passe :</label><br>
             <input type="password" name="mdp" ><br>
@@ -41,17 +40,7 @@ require_once 'Models/User.php';
             <input type="submit" name="submit" value="SE DÉCONNECTER" class="boutonProfil"><br>
             </form>
             <?php
-        } elseif ($_POST['submit'] == 'SUPPRIMER MON COMPTE') {
-            deleteUser($pdo, $_SESSION['user_id']);
-            exit();
-        } elseif ($_POST['submit'] == 'SE DÉCONNECTER') {
-            logout();
-        }
-     elseif ($_POST['submit'] == 'MODIFIER') {
-        gestionMDP($pdo, $_SESSION['user_id'], $_POST['mdp'], $_POST['mdp2'], $_POST['nom_user'], $_POST['pren_user'], $_POST['mail_user']);
-        exit();
-    } }else {
-        $users = getUser($pdo, $_SESSION['user_id']); ?>
+    } }else { ?>
 
         <p class="profilTexte"> Nom : <?php echo htmlspecialchars($users['nom_user']); ?></p>
         <p class="profilTexte"> Prénom : <?php echo htmlspecialchars($users['pren_user']); ?></p>
