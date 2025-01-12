@@ -1,4 +1,4 @@
-<?php include 'Controllers/NavBar.php'; ?> <!-- Inclusion de la barre de navigation -->
+<?php include 'Controllers/NavBar.php'; ?>
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -6,32 +6,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Game Collection</title>
-    <!-- Inclusion des fichiers CSS pour le design global -->
-    <link rel="stylesheet" href="Assets/CSS/General.css">
-    <link rel="stylesheet" href="Assets/CSS/NavBar.css">
-    <link rel="stylesheet" href="Assets/CSS/FormulaireConnexion.css">
-    <link rel="stylesheet" href="Assets/CSS/Loading.css">
-    <link rel="stylesheet" href="Assets/CSS/Ranking.css">
-    <link rel="stylesheet" href="Assets/CSS/Profil.css">
-    <link rel="stylesheet" href="Assets/CSS/footer.css">
+    <!-- Inclusion des fichiers CSS -->
+    <link rel="stylesheet" type="text/css" href="Assets/CSS/General.css">
+    <link rel="stylesheet" type="text/css" href="Assets/CSS/NavBar.css">
+    <link rel="stylesheet" type="text/css" href="Assets/CSS/FormulaireConnexion.css">
+    
+    <link rel="stylesheet" type="text/css" href="Assets/CSS/Loading.css">
+    <link rel="stylesheet" type="text/css" href="Assets/CSS/Ranking.css">
+    <link rel="stylesheet" type="text/css" href="Assets/CSS/Profil.css">
+    <link rel="stylesheet" type="text/css" href="Assets/CSS/footer.css">
 </head>
 <body>
 
 <?php
-require 'vendor/autoload.php'; // Chargement automatique des dépendances (composer)
+require 'vendor/autoload.php';
 
-// Chargement des variables d'environnement (.env)
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->load();
 
-// Démarrage de la session PHP
-session_start();
-
-// Connexion à la base de données
+session_start(); // Démarrer la session
 require_once 'Models/fonctionDB.php';
-$pdo = connexion(); // Création de la connexion PDO
+require_once 'Models/User.php';
+require_once 'Models/Game.php';
+require_once 'Models/LibraryModel.php';
+$pdo = connexion();
 
-// Autochargement des classes (Modèles et Contrôleurs)
+// Autochargement des classes
 spl_autoload_register(function ($class) {
     $paths = ['Controllers/', 'Models/'];
     foreach ($paths as $path) {
@@ -43,94 +43,95 @@ spl_autoload_register(function ($class) {
     }
 });
 
-// Déterminer l'action à effectuer
-$action = isset($_GET['action']) ? htmlspecialchars($_GET['action']) : 'login'; // Par défaut, redirige vers la page de connexion
+// Sécuriser la variable d'action
+$action = isset($_GET['action']) ? htmlspecialchars($_GET['action']) : 'login';
 
-// Liste des actions accessibles sans être connecté
+// Liste des actions accessibles sans connexion
 $actions_non_securisees = ['login', 'register'];
 
-// Vérification de la connexion de l'utilisateur
+// Vérifier si l'utilisateur est connecté
 if (!isset($_SESSION['user_id']) && !in_array($action, $actions_non_securisees)) {
-    // Redirection vers la page de connexion si l'utilisateur n'est pas connecté
+    // Rediriger vers la page de connexion si l'utilisateur n'est pas connecté
     header("Location: index.php?action=login");
     exit();
 }
 
+$authController = new AuthController($pdo);
+
+// Routage
 try {
-    // Routage principal
     switch ($action) {
         case 'login':
-            $authController = new AuthController($pdo); // Instanciation du contrôleur d'authentification
             if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                $authController->login($_POST); // Traitement des données envoyées par le formulaire de connexion
+                $authController->login($_POST);
             } else {
-                require_once 'Views/login_view.php'; // Chargement de la vue de connexion
+                require_once 'Views/login_view.php';
             }
             break;
 
         case 'register':
-            $authController = new AuthController($pdo); // Contrôleur d'authentification
             if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                $authController->register($_POST); // Inscription d'un nouvel utilisateur
+                $authController->register($_POST);
             } else {
-                require_once 'Views/register_view.php'; // Chargement de la vue d'inscription
+                require_once 'Views/register_view.php';
             }
             break;
 
         case 'logout':
-            $authController = new AuthController($pdo);
-            $authController->logout(); // Déconnexion de l'utilisateur
+            $authController->logout();
             break;
 
-        case 'add_game':
-            $gameController = new GameController($pdo); // Contrôleur pour gérer les jeux
-            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                $message = $gameController->addGame($_POST); // Ajout d'un jeu à la base de données
-                $messageType = str_contains($message, 'succès') ? 'success' : 'error'; // Déterminer le type de message
-            }
-            require_once 'Views/add_game_view.php'; // Vue pour ajouter un jeu
-            break;
+            case 'add_game':
+                $gameController = new GameController($pdo);
+                $message = '';
+                $messageType = 'info';
+                if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                    $message = $gameController->addGame($_POST);
+                    $messageType = str_contains($message, 'succès') ? 'success' : 'error';
+                }
+                require_once 'Views/add_game_view.php';
+                break;
+            
+            
 
         case 'ranking':
-            $rankingController = new RankingController($pdo); // Contrôleur pour gérer le classement
-            $rankingController->showRanking(); // Affichage du classement
+            $ranlingController = new RankingController($pdo);
+            $ranlingController->showRanking();
             break;
 
         case 'home':
-            $libraryController = new LibraryController($pdo); // Contrôleur pour gérer la bibliothèque
-            $libraryController->showLibrary(); // Affichage des jeux de la bibliothèque
-            require_once 'Views/LibraryView.php'; // Chargement de la vue correspondante
+            $libraryController = new LibraryController($pdo);
+            $libraryController->showLibrary();
+            require_once 'Views/LibraryView.php';
             break;
 
         case 'add':
-            $addLibraryController = new AddLibraryController($pdo); // Contrôleur pour ajouter un jeu à la bibliothèque
-            $games = $addLibraryController->searchGame($_POST ?? []); // Recherche de jeux si des données sont soumises
+            $addLibraryController = new AddLibraryController($pdo);
+            $games = $addLibraryController->searchGame($_POST);
             $message = '';
             if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                $message = $addLibraryController->addGame($_POST); // Ajout d'un jeu spécifique
+                $message = $addLibraryController->addGame($_POST);
             }
-            require_once 'Views/add_library_view.php'; // Vue d'ajout à la bibliothèque
+            $addLibraryController->showAddLibrary($games, $message);
             break;
 
         case 'modifyGame':
-            $modifyGameController = new ModifyGameController($pdo); // Contrôleur pour modifier un jeu
-            $gameId = isset($_GET['id']) ? htmlspecialchars($_GET['id']) : null; // Récupération de l'ID du jeu
-            $modifyGameController->showGame($gameId); // Affichage des informations du jeu pour modification
+            $game = isset($_GET['type']) ? htmlspecialchars($_GET['type']) : '';
+            $ModifyGameController = new ModifyGameController($pdo);
+            $ModifyGameController->showGame($game);
             break;
 
         case 'profile':
-            $authController = new AuthController($pdo); // Contrôleur d'authentification
-            $authController->showProfile(); // Affichage du profil utilisateur
+            $authController->showProfile();
             break;
 
         default:
-            // Affichage d'une erreur pour une action non reconnue
-            echo "<p>Page introuvable. Veuillez vérifier l'URL.</p>";
+            echo "<p>Page introuvable.</p>";
             break;
     }
 } catch (Exception $e) {
-    // Gestion des erreurs globales
-    echo "<p>Une erreur s'est produite : " . htmlspecialchars($e->getMessage()) . "</p>";
+    // Gestion des erreurs
+    echo "<p>Erreur : " . $e->getMessage() . "</p>";
 }
 ?>
 </body>
