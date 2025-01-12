@@ -5,11 +5,10 @@ RewriteEngine on
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 
-# Réécrire les URLs courtes vers index.php (ex: /add → index.php?a=add)
+# Réécrire les URLs courtes vers index.php
 RewriteRule ^([a-zA-Z0-9_-]+)$ index.php?a=$1 [QSA,L]
 
 # Bloquer l'accès direct aux fichiers PHP (sauf index.php)
 RewriteCond %{REQUEST_URI} !^/index\.php$
 RewriteCond %{REQUEST_URI} \.php$
 RewriteRule ^.*$ - [F,L]
-
