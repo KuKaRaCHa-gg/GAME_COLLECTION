@@ -24,7 +24,7 @@ class AddLibraryController {
         if (isset($data['search_action']) && $data['search_game'] != '') {
             $games = searchGame($this->pdo, $data['search_game']);
             if (empty($games)) {
-                header("Location: index.php?action=add_game");
+                header("Location: add_game");
             }
         } else {
             $games = getAllGames($this->pdo);

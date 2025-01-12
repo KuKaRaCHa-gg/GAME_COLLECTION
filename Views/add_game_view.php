@@ -1,3 +1,4 @@
+
 <head>
     <title>Ajouter un jeu à sa bibliothèque</title>
     <link rel="stylesheet" type="text/css" href="Assets/CSS/General.css">
@@ -26,27 +27,10 @@
 <div class="container">
     <div class="toLeft">
     <h1 class="page-title">Ajouter un jeu à sa bibliothèque</h1>
-    <?php 
-    /*
-    <p class="page-description">Recherchez un jeu existant ou ajoutez-en un nouveau pour enrichir votre collection.</p>
-
-    <!-- Formulaire de recherche -->
-    <form action="index.php?action=add_game" method="POST" class="form-search">
-        <div class="form-group">
-            <label for="search_game">Rechercher un jeu :</label>
-            <input type="text" id="search_game" name="search_game" placeholder="Entrez le nom du jeu">
-        </div>
-        <button type="submit" name="search_action" value="search_game" class="btn">Rechercher</button>
-    </form>
-    
-
-    <hr>
-
-    */?>
 
     <!-- Formulaire d'ajout -->
     <h3 class="section-title"> Le jeu que vous souhaiter ajouter n'existe pas ! Vous pouvez le créer, celui ci sera automatiquement ajouter a votre bibliothèque</h3>
-    <form action="index.php?action=add_game" method="POST" class="formDefaut">
+    <form action="dd_game" method="POST" class="formDefaut">
         <div class="form-group">
             <label for="nom_game">Nom du jeu</label>
             <input type="text" id="nom_game" name="nom_game" placeholder="Nom du jeu" required>

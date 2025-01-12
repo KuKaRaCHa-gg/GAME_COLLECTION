@@ -52,7 +52,7 @@ $actions_non_securisees = ['login', 'register'];
 // Vérifier si l'utilisateur est connecté
 if (!isset($_SESSION['user_id']) && !in_array($action, $actions_non_securisees)) {
     // Rediriger vers la page de connexion si l'utilisateur n'est pas connecté
-    header("Location: index.php?action=login");
+    header("Location: login");
     exit();
 }
 

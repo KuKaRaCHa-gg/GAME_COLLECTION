@@ -1,14 +1,13 @@
-# Activer le moteur de réécriture
-RewriteEngine on
+RewriteEngine On
 
-# Interdire l'accès direct aux fichiers PHP, sauf index.php
-RewriteCond %{REQUEST_URI} !^/index\.php$
-RewriteCond %{REQUEST_URI} \.php$
-#RewriteRule ^.*$ - [F,L]
+# Exclure les fichiers statiques
+RewriteCond %{REQUEST_URI} !\.(css|js|jpg|jpeg|png|gif|ico|svg|woff|woff2|ttf|eot|otf|webp)$ [NC]
 
-# Si la requête est pour un fichier ou un répertoire existant, ne pas réécrire
+# Exclure le dossier Assets
+RewriteCond %{REQUEST_URI} ^/Assets/ [NC]
+RewriteRule .* - [L]
+
+# Rediriger les actions vers index.php
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-
-# Rediriger toutes les requêtes vers index.php
-RewriteRule ^.*$ index.php [QSA,L]
+RewriteRule ^([^/]+)$ index.php?action=$1 [QSA,L]

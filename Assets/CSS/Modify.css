@@ -1,9 +1,12 @@
 #thumbnail {
-    width : 20%;
-    height : 50%;
-    position : absolute;
     left : 70%;
-    top : 130px;
+    top : 12%;
+    position: absolute;
+    width: 20%;
+    height: 50%;
+    object-fit: cover;
+    z-index: -1;
+    border-radius: 10px;
 
 }
 
