@@ -10,7 +10,7 @@ function loginUser($pdo, $email, $password)
     if ($row) {
         if (password_verify($password, $row['mdp_user'])) {
             $_SESSION['user_id'] = $row['id_user'];
-            header("Location: index.php?action=home");
+            header("Location: home");
             exit();
         } else {
             echo 'Mot de passe incorrect';
@@ -75,7 +75,7 @@ function getUser($pdo, $id){
 function logout()
 {
     session_destroy();
-    header("Location: index.php?action=login");
+    header("Location: login");
     exit();
 }
 
@@ -94,7 +94,7 @@ function deleteUser($pdo, $id)
     $query->bindParam(':id', $id, PDO::PARAM_INT);
     $query->execute();
     session_destroy();
-    header("Location: index.php?action=login");
+    header("Location: login");
     exit();
 }
 
@@ -110,7 +110,7 @@ function gestionMDP($pdo, $id, $mdp, $mdp2, $nom, $prenom, $email)
         $query->bindParam(':id', $id, PDO::PARAM_INT);
         $query->execute();
         $_POST['submit'] = '';
-        header("Location: index.php?action=profile");
+        header("Location: profile");
         exit();
     } elseif ($mdp == $mdp2) {
         $mdp = password_hash($mdp, PASSWORD_DEFAULT);
@@ -122,7 +122,7 @@ function gestionMDP($pdo, $id, $mdp, $mdp2, $nom, $prenom, $email)
         $query->bindParam(':id', $id, PDO::PARAM_INT);
         $query->execute();
         $_POST['submit'] = '';
-        header("Location: index.php?action=profile");
+        header("Location: profile");
         exit();
     } else {
         echo 'Les mots de passe ne correspondent pas';

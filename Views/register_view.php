@@ -1,7 +1,13 @@
-
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
 <div class="register-container">
-    <form action="index.php?action=register" method="POST">
+    <form action="register" method="POST">
         <h1>Inscription</h1>
         <label for="nom">Nom :</label>
         <input type="text" id="nom" name="nom" required>
@@ -21,4 +27,7 @@
         <button type="submit" name="submit">Créer un compte</button>
     </form>
 </div>
+    
+</body>
+</html>
 <?php include 'footer.php'; ?>

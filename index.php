@@ -52,7 +52,7 @@ $actions_non_securisees = ['login', 'register'];
 // Vérifier si l'utilisateur est connecté
 if (!isset($_SESSION['user_id']) && !in_array($action, $actions_non_securisees)) {
     // Rediriger vers la page de connexion si l'utilisateur n'est pas connecté
-    header("Location: index.php?action=login");
+    header("Location: login");
     exit();
 }
 
@@ -118,6 +118,10 @@ try {
         case 'modifyGame':
             $game = isset($_GET['type']) ? htmlspecialchars($_GET['type']) : '';
             $ModifyGameController = new ModifyGameController($pdo);
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                $ModifyGameController->addTime($game, $_POST['time']);
+                $_Get['type'] = $game;
+            }
             $ModifyGameController->showGame($game);
             break;
 

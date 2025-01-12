@@ -13,4 +13,8 @@ class ModifyGameController {
         $pdo = $this->pdo;
         require_once 'Views/ModifyGameView.php';
     }
+
+    public function addTime($id, $time) {
+        addTime($this->pdo, $id, $time);
+    }
 }

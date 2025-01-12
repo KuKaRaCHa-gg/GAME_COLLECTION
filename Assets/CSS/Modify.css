@@ -1,9 +1,12 @@
 #thumbnail {
-    width : 264px;
-    height : 355px;
-    position : absolute;
-    left : 8%;
-    top : 130px;
+    left : 70%;
+    top : 12%;
+    position: absolute;
+    width: 20%;
+    height: 50%;
+    object-fit: cover;
+    z-index: -1;
+    border-radius: 10px;
 
 }
 
@@ -17,4 +20,40 @@
     gap: 10px;
     align-items: flex-start;
 
+}
+
+#boutons button {
+    height: 35px;
+    background-color: #6757D6;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#boutons button:hover {
+    background-color: #463897;
+}
+
+#boutons input[type="submit"] {
+    width: 100px;
+    height: 35px;
+    background-color: #6757D6;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#boutons input[type="submit"]:hover {
+    background-color: #463897;
+}
+
+#boutons input[type="number"] {
+    margin-left: initial;
+    border-radius: 5px;
+}
+
+#boutons p {
+    margin: initial
 }

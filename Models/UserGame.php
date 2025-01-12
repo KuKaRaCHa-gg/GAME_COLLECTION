@@ -35,3 +35,12 @@ function getSpecificGame($pdo, $id)
     $result = $query->fetch(PDO::FETCH_ASSOC);
     return $result;
 }
+
+function addTime($pdo, $id, $time)
+{
+    $query = $pdo->prepare("UPDATE LIBRARY SET time_game = :time WHERE id_library = :id");
+    $query->bindParam(':id', $id, PDO::PARAM_INT);
+    $query->bindParam(':time', $time, PDO::PARAM_INT);
+    $query->execute();
+}
+
