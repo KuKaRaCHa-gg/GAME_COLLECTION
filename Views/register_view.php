@@ -9,6 +9,7 @@
 <div class="register-container">
     <form action="register" method="POST">
         <h1>Inscription</h1>
+        <p> <?php echo htmlspecialchars($message)?></p>
         <label for="nom">Nom :</label>
         <input type="text" id="nom" name="nom" required>
 

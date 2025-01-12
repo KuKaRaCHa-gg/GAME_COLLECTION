@@ -13,10 +13,10 @@ function loginUser($pdo, $email, $password)
             header("Location: home");
             exit();
         } else {
-            echo 'Mot de passe incorrect';
+            return 'Mot de passe incorrect';
         }
     } else {
-        echo 'Email incorrect';
+        return 'Email incorrect';
     }
 }
 
@@ -125,7 +125,9 @@ function gestionMDP($pdo, $id, $mdp, $mdp2, $nom, $prenom, $email)
         header("Location: profile");
         exit();
     } else {
+        $_POST['submit'] = 'MODIFIER MON PROFILE';
         echo 'Les mots de passe ne correspondent pas';
+
     }
 
 }

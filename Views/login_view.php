@@ -1,8 +1,3 @@
-<?php include 'Controllers/NavBar.php';
-require_once 'Models/fonctionDB.php';
-require_once 'Models/User.php';
-$pdo = connexion(); ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,6 +9,7 @@ $pdo = connexion(); ?>
 <div class="login-container">
     <form action="login" method="POST">
         <h1>Connexion</h1>
+        <p> <?php echo htmlspecialchars($message)?></p>
         <label for="email">Email :</label>
         <input type="email" id="email" name="email" required>
 

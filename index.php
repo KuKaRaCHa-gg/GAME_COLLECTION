@@ -62,19 +62,19 @@ $authController = new AuthController($pdo);
 try {
     switch ($action) {
         case 'login':
+            $message = '';
             if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                $authController->login($_POST);
-            } else {
-                require_once 'Views/login_view.php';
+                $message = $authController->login($_POST);
             }
+            require_once 'Views/login_view.php';
             break;
 
         case 'register':
+            $message = '';
             if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                $authController->register($_POST);
-            } else {
-                require_once 'Views/register_view.php';
-            }
+                $message = $authController->register($_POST);
+            } 
+            require_once 'Views/register_view.php';
             break;
 
         case 'logout':
